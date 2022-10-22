@@ -1,0 +1,19 @@
+<template>
+    <lightning-card
+            title={hours}
+            icon-name="custom:custom62"
+        >
+          <div class="slds-var-m-around_medium">
+                <template if:true={recursos}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={recursos}
+                        columns={columns}
+                       draft-values={draftValues}
+                       >
+                    </lightning-datatable>
+                </template>
+            </div>
+            </lightning-card>
+
+        </template>
