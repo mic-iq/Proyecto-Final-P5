@@ -22,7 +22,6 @@ public class ResourceService {
         List<User> resourcesAvailable = [SELECT Id,Name, RatePerHour__c,Role__c FROM User WHERE Role__c =:Role AND Id NOT IN: resourcesNotAvailableId];
         System.debug(resourcesAvailable);
         return resourcesAvailable;
-        system.debug(resourcesAvailable);
     }
     public class ResourceWrapper {
         @AuraEnabled
