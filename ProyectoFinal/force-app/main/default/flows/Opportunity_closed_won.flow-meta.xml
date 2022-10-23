@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>56.0</apiVersion>
     <assignments>
         <name>Assignment_in_Project</name>
         <label>Assignment in Project</label>
@@ -167,7 +166,6 @@
             <targetReference>Loop_on_Opportunity</targetReference>
         </connector>
     </assignments>
-    <environments>Default</environments>
     <interviewLabel>Opportunity closed won {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity closed won</label>
     <loops>
@@ -271,7 +269,6 @@
         <connector>
             <targetReference>Loop_in_Opportunity_Line_Item</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>OpportunityId</field>
             <operator>EqualTo</operator>
@@ -279,9 +276,7 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>OpportunityLineItem</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Get_projects_created</name>
@@ -292,7 +287,6 @@
         <connector>
             <targetReference>Loop_in_projects_created</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>Opportunity__c</field>
             <operator>EqualTo</operator>
@@ -300,9 +294,7 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Project__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
     <recordLookups>
         <name>Opportunity_Close_Won</name>
@@ -313,7 +305,6 @@
         <connector>
             <targetReference>Loop_on_Opportunity</targetReference>
         </connector>
-        <filterLogic>and</filterLogic>
         <filters>
             <field>Id</field>
             <operator>EqualTo</operator>
@@ -321,29 +312,9 @@
                 <elementReference>$Record.Id</elementReference>
             </value>
         </filters>
-        <getFirstRecordOnly>false</getFirstRecordOnly>
         <object>Opportunity</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordLookups>
-    <start>
-        <locationX>50</locationX>
-        <locationY>0</locationY>
-        <connector>
-            <targetReference>Opportunity_Close_Won</targetReference>
-        </connector>
-        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>StageName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Closed Won</stringValue>
-            </value>
-        </filters>
-        <object>Opportunity</object>
-        <recordTriggerType>CreateAndUpdate</recordTriggerType>
-        <triggerType>RecordAfterSave</triggerType>
-    </start>
+    <startElementReference>Opportunity_Close_Won</startElementReference>
     <status>Active</status>
     <variables>
         <name>OpportunityLineItem</name>
