@@ -34,10 +34,14 @@ export default class ResourceAllocation extends LightningElement {
     @api recordId;
     columns = columns;
     recursos;
+
     horas;
+  
+
     get hours(){
         return 'Consultant - Hours to cover: '+ this.horas +' hours';
     }
+
                                                                            
     @wire(getResourcesWrapper,{projectId: '$recordId', Role:'Consultant'})
        resource(Result){
@@ -50,5 +54,6 @@ export default class ResourceAllocation extends LightningElement {
             this.error = error;
         }
     }
+
    
 }
