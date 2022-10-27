@@ -5,9 +5,29 @@
         >
           <div class="slds-var-m-around_medium">
                 <template if:true={recursos}>
-                    <lightning-datatable
+                    <lightning-datatable                        
                         key-field="Id"
                         data={recursos}
+                        columns={columns}
+                        draft-values={draftValues}
+                        errors={errors}
+                        show-row-number-column="true"
+                        onsave={handleSave}
+                        >
+                    </lightning-datatable>
+                </template>
+            </div>
+            </lightning-card>
+
+            <lightning-card
+            title={hoursdev}
+            icon-name="custom:custom67"
+        >
+          <div class="slds-var-m-around_medium">
+                <template if:true={recursosDeveloper}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={recursosDeveloper}
                         columns={columns}
                        draft-values={draftValues}
                        >
@@ -15,4 +35,23 @@
                 </template>
             </div>
             </lightning-card>
-</template>
+
+            <lightning-card
+            title={hoursarch}
+            icon-name="custom:custom63"
+        >
+          <div class="slds-var-m-around_medium">
+                <template if:true={recursosArchitect}>
+                    <lightning-datatable
+                        key-field="Id"
+                        data={recursosArchitect}
+                        columns={columns}
+                       draft-values={draftValues}
+                       >
+                    </lightning-datatable>
+                </template>
+            </div>
+            </lightning-card>
+
+
+        </template>
