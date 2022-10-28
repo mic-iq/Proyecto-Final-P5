@@ -1,15 +1,13 @@
 <template>
     <template if:true={allResources}>
-        <template for:each={allResources} for:item="resource">
+        <template for:each={allResources} for:item="resource" for:index="index">
             <div key={Role__c}>
+               
                 <template iterator:recurso={resource}>
                     <div key={recurso.value.id}>
                         <div if:true={recurso.first}>
-                    <lightning-card
-                            title={recurso.value.Role__c}
-                            icon-name="custom:custom62"
-                        >
-                        <div class="slds-var-m-around_medium">
+                            <c-header index={index} hr={_hours} role={recurso.value.Role__c} icons-role={iconsRole}></c-header>
+                         <div class="slds-var-m-around_medium">
                             <lightning-datatable                        
                             key-field="Id"
                             data={resource}
@@ -23,7 +21,8 @@
                             >
                             </lightning-datatable>
                         </div>
-                    </lightning-card>
+                        <!-- <c-auxiliar datos={resource} > </c-auxiliar> -->
+                   
                 </div>
                     </div>
                 </template>
@@ -34,37 +33,3 @@
             <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
      </div>
 </template>
-                
-<!-- 
-<template if:true={allResources}>
-    <template for:each={allResources} for:item="resource" for:index="index" >
-        <div key={Role__c}>
-            <template for:each={resource} for:item="elemento">
-                <div key={elemento.Id}>
-                <lightning-card
-                        title={hours}
-                        icon-name="custom:custom62"
-                    >
-                    <div class="slds-var-m-around_medium">
-                        <lightning-datatable                        
-                        key-field="Id"
-                        data={resource}
-                        columns={columns}
-                        draft-values={draftValues}
-                        errors={errors}
-                        oncellchange={handleSave}
-                        onrowselection={handleSelectedRows}
-                        show-row-number-column="true"
-                        suppress-bottom-bar="true"
-                        >
-                        </lightning-datatable>
-                    </div>
-                </lightning-card>
-                </div>
-            </template>
-        </div>
-        
-                
-    </template>
-                        
-</template> -->
