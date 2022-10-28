@@ -1,6 +1,7 @@
 public class ResourceService {
   @auraEnabled
-     public static void registerResource(Id ProjectId,List<Map<String,Object>> selected){
+     public static Boolean registerResource(Id ProjectId,List<Map<String,Object>> selected){
+         Boolean insertados = false;
           system.debug('Estos son mis recursos seleccionados: '+selected);
          system.debug('Estoy en proyecto : '+ProjectId);
          if(selected.size()>0){
@@ -28,7 +29,7 @@ public class ResourceService {
                  system.debug('su ultimo proyecto hecho : '+ultimoProyectoEnElqueTrabajo);
                 
               if(ultimoProyectoEnElqueTrabajo.End_Date__c >= fechaInicioDesdeInterfaz){
-                 
+                 system.debug('Este usuario No puede trabajar en este proyecto');
                 break;
                }else if(ultimoProyectoEnElqueTrabajo.End_Date__c < startDate || ultimoProyectoEnElqueTrabajo.End_Date__c < fechaInicioDesdeInterfaz){
                         ProjectResource__c recurso = new ProjectResource__c();
@@ -64,45 +65,113 @@ public class ResourceService {
             }
             if(recursosAInsertar.size()>0){
                 insert recursosAInsertar;
-            }      
+                insertados = true;
+            }  
+             
          }
+         return insertados;
      }
     
     
     ////////////////////////////////////Método getResourcesWrapper/////////////////////////////////////////////////////////
-    @AuraEnabled(cacheable=true)
-    public static ResourceWrapper getResourcesWrapper(Id projectId,String Role){
-        Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c FROM ProjectLineItems__r WHERE Role__c=: Role)FROM Project__c WHERE Id=:projectId];
-        List<User> resourcesAvailable = getResourcesWrap(project,Role);
+  ////////////////////////// 
+   @AuraEnabled(cacheable=true)
+    public static ResourceWrapper getResourcesWrapper(Id projectId){
+        Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+        List<List<User>> resourcesAvailable = getResourcesWrap(project);
       //  system.debug('Estos son mis recursos: '+resourcesAvailable);
         ResourceWrapper resourceWrap = new ResourceWrapper(project,resourcesAvailable);
         return resourceWrap;
     }
     
-   private static List <User> getResourcesWrap(Project__c project,String Role){
+   private static List<List<User>> getResourcesWrap(Project__c project){
+        List<ProjectLineItem__c>  projectLineItemList = project.ProjectLineItems__r;
         Date startDate = project.Start_Date__c;
         Date endDate = project.End_Date__c;
-        //List<ProjectResource__c> infoResourcesNotAvailable= [SELECT User__c,Id, Start_Date__c,End_Date__c From ProjectResource__c WHERE (Start_Date__c <:endDate AND Start_Date__c >=:startDate)  OR (Start_Date__c <:startDate AND End_Date__c >=:endDate)];
-        List<ProjectResource__c> infoResourcesNotAvailable= [SELECT User__c,Id, Start_Date__c,End_Date__c From ProjectResource__c WHERE Start_Date__c <:startDate AND End_Date__c >=:endDate];
-       // System.debug('ProjectResource: '+ infoResourcesNotAvailable);
-        Set<Id> resourcesNotAvailableId = new Set<Id>();
-        for (ProjectResource__c projectResource:infoResourcesNotAvailable){
+       List<ProjectResource__c> infoResourcesNotAvailable= [SELECT ProjectLineItem__r.Project__r.Id,User__c,Id, Start_Date__c,End_Date__c From ProjectResource__c WHERE (Start_Date__c <:startDate AND End_Date__c >=:endDate) OR ProjectLineItem__r.Project__r.Id=:project.Id ];
+       Set<Id> resourcesNotAvailableId = new Set<Id>();
+       for (ProjectResource__c projectResource:infoResourcesNotAvailable){
              resourcesNotAvailableId.add(projectResource.User__c);
         }
-        System.debug('Id que no quiero: '+resourcesNotAvailableId);
-        List<User> resourcesAvailable = [SELECT Id,Name, RatePerHour__c,Role__c FROM User WHERE Role__c =:Role AND Id NOT IN: resourcesNotAvailableId];
-       // System.debug(resourcesAvailable);
-        return resourcesAvailable;
+       System.debug('Id que no quiero: '+resourcesNotAvailableId);
+       List<List<User>>resourcesAvailable = new List<List<User>>();
+           for(ProjectLineItem__c projectLineItem:projectLineItemList){
+               String Role = projectLineItem.Role__c;
+               List<User> resourcesAvailableXrole = resourceXrole(resourcesNotAvailableId,Role);
+               resourcesAvailable.add(resourcesAvailableXrole);
+           }
+      return resourcesAvailable;
     }
-    public class ResourceWrapper {
+
+///Función helper para getResourcesWrap///////////////
+private static List<User> resourceXrole(set<Id> resourceId,String Role){
+   List<User> resourcesAvailableXrole = [SELECT Id,Name, RatePerHour__c,Role__c FROM User WHERE Role__c =:Role AND Id NOT IN: resourceId];
+return resourcesAvailableXrole;
+}
+
+
+///////Clase Wrapper/////////////////
+ public class ResourceWrapper {
         @AuraEnabled
         public Project__c project;
         @AuraEnabled
-        public List <User> resources;
-        public ResourceWrapper(Project__c project,List <User>resources){
+        public List<List<User>> resources;
+        public ResourceWrapper(Project__c project,List<List<User>> resources){
             this.project =project;
             this.resources = resources;
         }
         
     }
 }
+
+
+
+
+////////////////////////////////////
+/* @AuraEnabled(cacheable=true)
+    public static ResourceWrapper getResourcesWrapper(Id projectId){
+        Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+        List<List<User>> resourcesAvailable = getResourcesWrap(project);
+      //  system.debug('Estos son mis recursos: '+resourcesAvailable);
+        ResourceWrapper resourceWrap = new ResourceWrapper(project,resourcesAvailable);
+        return resourceWrap;
+    }
+    
+   private static List<List<User>> getResourcesWrap(Project__c project){
+        List<ProjectLineItem__c>  projectLineItemList = project.ProjectLineItems__r;
+        Date startDate = project.Start_Date__c;
+        Date endDate = project.End_Date__c;
+       List<ProjectResource__c> infoResourcesNotAvailable= [SELECT ProjectLineItem__r.Project__r.Id,User__c,Id, Start_Date__c,End_Date__c From ProjectResource__c WHERE (Start_Date__c <:startDate AND End_Date__c >=:endDate) OR ProjectLineItem__r.Project__r.Id=:project.Id ];
+       Set<Id> resourcesNotAvailableId = new Set<Id>();
+       for (ProjectResource__c projectResource:infoResourcesNotAvailable){
+             resourcesNotAvailableId.add(projectResource.User__c);
+        }
+       System.debug('Id que no quiero: '+resourcesNotAvailableId);
+       List<List<User>>resourcesAvailable = new List<List<User>>();
+           for(ProjectLineItem__c projectLineItem__c:projectLineItemList){
+               List<User> resourcesAvailableXrole = resourceXrole(resourcesNotAvailableId,projectLineItem__c.Role__c);
+               resourcesAvailable.add(resourcesAvailableXrole);
+           }
+      return resourcesAvailable;
+    }
+
+///Función helper para getResourcesWrap///////////////
+private static List<User> resourceXrole(Id resourceId,String Role){
+   List<User> resourcesAvailableXrole = [SELECT Id,Name, RatePerHour__c,Role__c FROM User WHERE Role__c =:Role AND Id NOT IN: resourceId];
+return resourcesAvailableXrole;
+}
+
+
+///////Clase Wrapper/////////////////
+ public class ResourceWrapper {
+        @AuraEnabled
+        public Project__c project;
+        @AuraEnabled
+        public List<List<User>> resources;
+        public ResourceWrapper(Project__c project,List<List<User>> resources){
+            this.project =project;
+            this.resources = resources;
+        }
+        
+    }
+    */
