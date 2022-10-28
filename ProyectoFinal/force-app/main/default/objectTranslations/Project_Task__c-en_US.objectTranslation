@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project Task</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Project Tasks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Hours --></label>
+        <name>EstimatedHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Resource --></label>
+        <name>ProjectResource__c</name>
+        <relationshipLabel><!-- Project Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Project Tasks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Register Hours --></label>
+        <name>RegisterHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>State__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In progress</masterLabel>
+            <translation><!-- In progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not started yet</masterLabel>
+            <translation><!-- Not started yet --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Project Tasks --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Task Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The project is not &quot;In Progress&quot; --></errorMessage>
+        <name>Assignment_Not_Allow</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Date out of project range. --></errorMessage>
+        <name>Date_Out_Of_Project_Range</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Squad Leads are allow to create tasks --></errorMessage>
+        <name>Not_creation_allowed</name>
+    </validationRules>
+</CustomObjectTranslation>

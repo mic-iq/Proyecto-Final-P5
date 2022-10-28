@@ -1,0 +1,61 @@
+<template>       
+          <template if:true={tasks}> 
+            <template for:each={tasks} for:item="task">
+                <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                    <lightning-card title={task.Project__r.Alias__c} icon-name="custom:custom19">
+
+                        <lightning-card >
+                            
+                            <div class="slds-var-m-around_medium">
+                                    <h1 class="slds-text-heading_small">Task: {task.Name} </h1>          
+                                <div ><br>
+                                    <h1 class="slds-text-heading_small">Estimated Hours: {task.EstimatedHours__c}</h1>
+                                </div><br>           
+                                <div >
+                                    <h1 class="slds-text-heading_small">Registered Hours: {task.RegisterHours__c}</h1>
+                                </div>
+                            </div>
+                        </lightning-card>
+                
+                        <div class="slds-m-vertical_medium  slds-text-heading_small ">
+                        </div>
+                        <div class="slds-var-m-around_medium">
+                            <lightning-combobox class="margenStatus"
+                            name="progress"
+                            label="Status"
+                            value={value}
+                            placeholder="Select Progress"
+                            options={options}
+                            onchange={handleChange} >
+                            </lightning-combobox> <br>
+                 
+                            <lightning-input class="margenHours"
+                            type="number"
+                            label ="Hours"
+                            value={principal}
+                            onchange={principalChange}
+                            ></lightning-input><br>
+                
+                            <p class="slds-var-m-vertical_small">
+                                <lightning-button
+                                    label="Hours"
+                                    onclick={calculateMonthlyPayment}
+                                ></lightning-button>&nbsp;&nbsp;
+                
+                                <lightning-button
+                                    label="Mark as Completed"
+                                    onclick={calculateMonthlyPayment}
+                            ></lightning-button>&nbsp;&nbsp;
+                
+                                <lightning-button
+                                    label="Start"
+                                    onclick={calculateMonthlyPayment}
+                                ></lightning-button>
+                            </p>
+                        </div>
+                    </lightning-card>
+                  </lightning-layout-item>
+                  </template> 
+                 
+          </template>
+</template>
