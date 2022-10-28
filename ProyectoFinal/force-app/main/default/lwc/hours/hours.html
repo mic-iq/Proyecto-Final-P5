@@ -1,0 +1,90 @@
+<template>
+
+    <template if:true={tasks}> 
+        <template for:each={tasks} for:item="task">
+            <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+
+    <lightning-card
+        title={task.Project__r.Alias__c}
+        icon-name="custom:custom19"
+    >
+        <div class="slds-var-m-around_medium">
+
+            <lightning-layout
+                vertical-align="end"
+                class="slds-var-m-bottom_small"
+            >
+                <lightning-layout-item flexibility="grow">
+                    <lightning-card  title="Task">
+                        <p class="slds-p-horizontal_small">{task.Name}</p>
+                    </lightning-card>
+
+                    <lightning-card  title="Task">
+                        <p class="slds-p-horizontal_small">{task.Name}</p>
+                    </lightning-card>
+                </lightning-layout-item>
+
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    
+                </lightning-layout-item>
+
+
+                <lightning-combobox class="margenStatus"
+                name="progress"
+                label="Status"
+                value={value}
+                placeholder="Select Progress"
+                options={options}
+                onchange={handleChange} >
+                </lightning-combobox>&nbsp;&nbsp;
+
+                <lightning-input 
+                            type="number"
+                            label ="Estimated Hours"
+                            value={principal}
+                            onchange={principalChange}
+                ></lightning-input>&nbsp;&nbsp;
+
+                <lightning-input 
+                            type="number"
+                            label ="Registered Hours:"
+                            value={principal}
+                            onchange={principalChange}
+                ></lightning-input>&nbsp;&nbsp;
+
+                <lightning-input 
+                            type="number"
+                            label ="Hours:"
+                            value={principal}
+                            onchange={principalChange}
+                ></lightning-input>&nbsp;&nbsp;
+
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    <lightning-button
+                        label="Hours"
+                        onclick={handleSearch}
+                    ></lightning-button>&nbsp;&nbsp;
+                </lightning-layout-item>
+
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    <lightning-button
+                        label="Mark as Completed"
+                        onclick={handleSearch}
+                    ></lightning-button>&nbsp;&nbsp;
+                </lightning-layout-item>
+
+                <lightning-layout-item class="slds-var-p-left_xx-small">
+                    <lightning-button
+                        label="Start"
+                        onclick={handleSearch}
+                    ></lightning-button>
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+                         </div>
+                    </lightning-card>
+            </lightning-layout-item>
+        </template>                 
+    </template>
+</template>
