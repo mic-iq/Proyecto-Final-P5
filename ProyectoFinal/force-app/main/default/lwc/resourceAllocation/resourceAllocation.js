@@ -52,10 +52,10 @@ export default class ResourceAllocation extends LightningElement {
     allResources;
     _hours;
     iconsRole=["custom:custom62","custom:custom67","custom:custom63"];
-    @track arregloDraftsCons=[];
-    @track arregloDraftsArch=[];
+    arregloDraftsArch=[];
+    arrayComplete=[];
+    arregloDraftsCons=[];
     arregloDraftsDevelop=[];
-    @track arrayComplete=[];
 
     
 
@@ -95,7 +95,7 @@ export default class ResourceAllocation extends LightningElement {
 handleSelectedRows(event){
     const rowsSelected=event.detail.selectedRows;
     const draftValues=event.target.draftValues;
-   //console.log(draftValues);
+    console.log(draftValues, rowsSelected);
     let eventAuxiliar=[];
     let mapa={};
     for(let i=0; i< rowsSelected.length; i++){
@@ -157,21 +157,43 @@ handleSelectedRows(event){
     }
 }
 
-    // arregloDraftsCons=[];
-    // arregloDraftsArch=[];
-    // arregloDraftsDevelop=[];
-    // arrayComplete=[];
-
     handleClick(){
-        //let arrayComplete;
-        // for(let i=0; i< this.arregloDraftsArch.length;i++){}
-        console.log(this.arregloDraftsArch, this.arregloDraftsCons, this.arregloDraftsDevelop+ "En handle")
+        this.arrayComplete=[];
+        if(this.arregloDraftsArch.length>0){
+            let mapa={};
+            for(let i=0; i< this.arregloDraftsArch.length;i++){
+                console.log(this.arregloDraftsArch[0][i])
+                mapa={};
+                mapa["Role"]=this.arregloDraftsArch[i].Role;
+                mapa["dateApiNameSD"]=this.arregloDraftsArch[i].dateApiNameSD;
+                mapa["dateApiNameED"]=this.arregloDraftsArch[i].dateApiNameED;
+                mapa["Id"]=this.arregloDraftsArch[i].Id;
+                this.arrayComplete[i]=mapa;
+            }
+        }
+        if(this.arregloDraftsCons.length>0){
+            let mapa={};
+            let index = this.arrayComplete.length;
+            for(let i=0; i< this.arregloDraftsCons.length;i++){
+                mapa={};
+                mapa["Role"]=this.arregloDraftsCons[i].Role;
+                mapa["dateApiNameSD"]=this.arregloDraftsCons[i].dateApiNameSD;
+                mapa["dateApiNameED"]=this.arregloDraftsCons[i].dateApiNameED;
+                mapa["Id"]=this.arregloDraftsCons[i].Id;
+                this.arrayComplete[index+i]=mapa;
+            }
+        }
+
+        // if(this.arregloDraftsDevelop.length>0){
+        // this.arrayComplete.push(this.arregloDraftsDevelop[0])
+        // }
         
+        // for(let i=0; i< this.arregloDraftsArch.length;i++){}
+        //, this.arregloDraftsCons, this.arregloDraftsDevelop+ "En handle")
+
         // arrayComplete.concat(this.arregloDraftsArch);
         // arrayComplete.concat(this.arregloDraftsCons);
         // arrayComplete.concat(this.arregloDraftsDevelop);
-        this.arrayComplete=this.arregloDraftsArch;
-        console.log(arrayComplete)
     //     if(this.arregloDraftsArch.legth>0){
     //         arrayComplete.concat(this.arregloDraftsArch)
     //     }
@@ -182,7 +204,7 @@ handleSelectedRows(event){
     //         arrayComplete.concat(this.arregloDraftsDevelop)
     //     }
     //     console.log(JSON.stringify(arrayComplete)+ " El arrayComplete")
-     registerResource({ProjectId: this.recordId, selected:arrayComplete})
+     registerResource({ProjectId: this.recordId, selected:this.arrayComplete})
      
     .then(resultado => {
         if(resultado==true){
@@ -192,7 +214,8 @@ handleSelectedRows(event){
      .catch(error=> console.log(JSON.stringify(error) + " Este es mi error"))
     }
 
-    enqueueWork(toApex){
+    enqueueWork(toApex){ 
+        
         if(toApex[0]["Role"]=="Consultant"){
           if(this.arregloDraftsCons.length==0){
             this.arregloDraftsCons.push(toApex);
@@ -214,7 +237,8 @@ handleSelectedRows(event){
             this.arregloDraftsDevelop=toApex;
           }
         }
-        console.log(this.arregloDraftsArch, this.arregloDraftsCons, this.arregloDraftsDevelop)
+        
+        //console.log(this.arregloDraftsArch, this.arregloDraftsCons, this.arregloDraftsDevelop+" en queue")
  		
   
 }
