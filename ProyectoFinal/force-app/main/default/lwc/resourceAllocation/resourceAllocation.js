@@ -52,10 +52,10 @@ export default class ResourceAllocation extends LightningElement {
     allResources;
     _hours;
     iconsRole=["custom:custom62","custom:custom67","custom:custom63"];
-    arregloDraftsArch=[];
-    arrayComplete=[];
-    arregloDraftsCons=[];
-    arregloDraftsDevelop=[];
+    @track arregloDraftsArch=[];
+    @track arregloDraftsCons=[];
+    @track arregloDraftsDevelop=[];
+    @track arrayComplete=[];
 
     
 
@@ -79,7 +79,6 @@ export default class ResourceAllocation extends LightningElement {
         });
 
         this._hours=vector;
-        console.log(this._hours);
         //this.horas = data.project.ProjectLineItems__r[0].QuantityHours__c;
         this.ProjectStartDate = data.project.Start_Date__c;
         this.ProjectEndDate = data.project.End_Date__c;
@@ -89,13 +88,46 @@ export default class ResourceAllocation extends LightningElement {
      }
     }
 
-   
- 
+     handleSave(event){
+        const draftValues=event.target.draftValues;
+        let mapa={};
+        this.errors={};
+        const misRecursos= this.allResources;
+        //console.log(misRecursos)
+        let eventAuxiliar=[];
+        for(let i=0; i< misRecursos.length; i++){
+          for(let f=0; f< misRecursos[i].length; f++){
+            for(let j =0; j<draftValues.length;j++){
+                if(draftValues[j].Id==misRecursos[i][f].Id){
+                    if(draftValues[j].dateApiNameSD != null && draftValues[j].dateApiNameED != null ){
+                        if(draftValues[j].dateApiNameSD>draftValues[j].dateApiNameED){
+                            let error = {};
+                            error.rows = {};
+                            error.rows[draftValues[j].Id] = { title: 'Too much coffee??..', messages: [ `Usually we start with the "Start Date", wich in this case, as example ${this.ProjectStartDate} then, "End date" that could be ${this.ProjectEndDate}.`], fields: ['dateApiNameSD', 'dateApiNameED']};
+                            this.errors = error;
+
+                        } else if(draftValues[j].dateApiNameSD < this.ProjectStartDate || draftValues[j].dateApiNameED > this.ProjectEndDate){
+                            let error = {};
+                            error.rows = {};
+                            error.rows[draftValues[j].Id] = { title: 'Please check your input', messages: [ `Dates should be between ${this.ProjectStartDate} and ${this.ProjectEndDate}.`], fields: ['dateApiNameSD', 'dateApiNameED']};
+                            this.errors = error;                            
+                             } else {
+                                 if(draftValues[j].Id==misRecursos[i][f].Id){
+                                     mapa={};
+                                     mapa=draftValues[j];
+                                     mapa["Role"]=misRecursos[i][f].Role__c;
+                                     eventAuxiliar.push(mapa);
+                                    }                
+                                }
+                }}
+            }
+            }
+        }
+      }
 
 handleSelectedRows(event){
     const rowsSelected=event.detail.selectedRows;
     const draftValues=event.target.draftValues;
-    console.log(draftValues, rowsSelected);
     let eventAuxiliar=[];
     let mapa={};
     for(let i=0; i< rowsSelected.length; i++){
@@ -132,7 +164,6 @@ handleSelectedRows(event){
                        // console.log(`no se puede procesar la solicitud para ${rowsSelected[i].Name} La fecha de inicio nunca puede ser mayor a la de fin`);
                     } else {
                             if(draftValues[j].Id==rowsSelected[i].Id){
-                                
                                 mapa={};
                                 mapa=draftValues[j];
                                 mapa["Role"]=rowsSelected[i].Role__c;
@@ -143,12 +174,13 @@ handleSelectedRows(event){
             }
 
             }
+
         }
 
       
     }
 
-    console.log(eventAuxiliar, this.recordId, this.eventAux);
+    //console.log(eventAuxiliar, this.recordId);
     
     
    if(eventAuxiliar.length>0){    
@@ -158,53 +190,72 @@ handleSelectedRows(event){
 }
 
     handleClick(){
-        this.arrayComplete=[];
-        if(this.arregloDraftsArch.length>0){
-            let mapa={};
-            for(let i=0; i< this.arregloDraftsArch.length;i++){
-                console.log(this.arregloDraftsArch[0][i])
-                mapa={};
-                mapa["Role"]=this.arregloDraftsArch[i].Role;
-                mapa["dateApiNameSD"]=this.arregloDraftsArch[i].dateApiNameSD;
-                mapa["dateApiNameED"]=this.arregloDraftsArch[i].dateApiNameED;
-                mapa["Id"]=this.arregloDraftsArch[i].Id;
-                this.arrayComplete[i]=mapa;
+      let mapa={};
+      let arrayArch=[];
+      let arrayDev=[];
+      let arrayCon=[];
+      this.arrayComplete;      
+         if(this.arregloDraftsArch.length>0){
+            JSON.stringify(this.arregloDraftsArch)
+            for(let i=0; i<this.arregloDraftsArch.length;i++){
+              
+              mapa={};
+              mapa["Role"]=this.arregloDraftsArch[i].Role;
+              mapa["dateApiNameSD"]=this.arregloDraftsArch[i].dateApiNameSD;
+              mapa["dateApiNameED"]=this.arregloDraftsArch[i].dateApiNameED;
+              mapa["Id"]=this.arregloDraftsArch[i].Id;
+              arrayArch.push(mapa);
             }
-        }
-        if(this.arregloDraftsCons.length>0){
-            let mapa={};
-            let index = this.arrayComplete.length;
-            for(let i=0; i< this.arregloDraftsCons.length;i++){
-                mapa={};
-                mapa["Role"]=this.arregloDraftsCons[i].Role;
-                mapa["dateApiNameSD"]=this.arregloDraftsCons[i].dateApiNameSD;
-                mapa["dateApiNameED"]=this.arregloDraftsCons[i].dateApiNameED;
-                mapa["Id"]=this.arregloDraftsCons[i].Id;
-                this.arrayComplete[index+i]=mapa;
+          }
+          if(this.arregloDraftsCons.length>0){
+            JSON.stringify(this.arregloDraftsCons)
+            for(let j=0; j<this.arregloDraftsCons.length;j++){
+             mapa={};
+             mapa["Role"]=this.arregloDraftsCons[j].Role;
+             mapa["dateApiNameSD"]=this.arregloDraftsCons[j].dateApiNameSD;
+             mapa["dateApiNameED"]=this.arregloDraftsCons[j].dateApiNameED;
+             mapa["Id"]=this.arregloDraftsCons[j].Id;
+             arrayCon.push(mapa);       
+             }
+          }
+          if(this.arregloDraftsDevelop.length>0){
+            JSON.stringify(this.arregloDraftsDevelop)
+            for(let f=0; f< this.arregloDraftsDevelop.length;f++){
+              mapa={};
+              mapa["Role"]=this.arregloDraftsDevelop[f].Role;
+              mapa["dateApiNameSD"]=this.arregloDraftsDevelop[f].dateApiNameSD;
+              mapa["dateApiNameED"]=this.arregloDraftsDevelop[f].dateApiNameED;
+              mapa["Id"]=this.arregloDraftsDevelop[f].Id;
+              arrayDev.push(mapa);
             }
-        }
+          }
+          
+          
+          let respuesta=[]
 
-        // if(this.arregloDraftsDevelop.length>0){
-        // this.arrayComplete.push(this.arregloDraftsDevelop[0])
-        // }
-        
-        // for(let i=0; i< this.arregloDraftsArch.length;i++){}
-        //, this.arregloDraftsCons, this.arregloDraftsDevelop+ "En handle")
+          let arch = JSON.parse(JSON.stringify(arrayArch))
+          let dev = JSON.parse(JSON.stringify(arrayDev))
+          let con = JSON.parse(JSON.stringify(arrayCon))
+          
+          if(arch.length>0){
+            for(let f=0; f< arch.length;f++){
+              respuesta.push(arch[f])
+            }
+          }
+          if(dev.length>0){
+            for(let f=0; f< dev.length;f++){
+              respuesta.push(dev[f])
+            }
+          }
+          if(con.length>0){
+            for(let f=0; f< con.length;f++){
+              respuesta.push(con[f])
+            }
+          }
 
-        // arrayComplete.concat(this.arregloDraftsArch);
-        // arrayComplete.concat(this.arregloDraftsCons);
-        // arrayComplete.concat(this.arregloDraftsDevelop);
-    //     if(this.arregloDraftsArch.legth>0){
-    //         arrayComplete.concat(this.arregloDraftsArch)
-    //     }
-    //     if(this.arregloDraftsCons.legth>0){
-    //         arrayComplete.concat(this.arregloDraftsCons)
-    //     }
-    //     if(this.arregloDraftsDevelop.legth>0){
-    //         arrayComplete.concat(this.arregloDraftsDevelop)
-    //     }
-    //     console.log(JSON.stringify(arrayComplete)+ " El arrayComplete")
-     registerResource({ProjectId: this.recordId, selected:this.arrayComplete})
+          console.log(respuesta);
+          
+     registerResource({ProjectId: this.recordId, selected:respuesta})
      
     .then(resultado => {
         if(resultado==true){
@@ -215,7 +266,6 @@ handleSelectedRows(event){
     }
 
     enqueueWork(toApex){ 
-        
         if(toApex[0]["Role"]=="Consultant"){
           if(this.arregloDraftsCons.length==0){
             this.arregloDraftsCons.push(toApex);
@@ -236,11 +286,7 @@ handleSelectedRows(event){
           } else{
             this.arregloDraftsDevelop=toApex;
           }
-        }
-        
-        //console.log(this.arregloDraftsArch, this.arregloDraftsCons, this.arregloDraftsDevelop+" en queue")
- 		
-  
+        }  
 }
 
 
@@ -273,39 +319,6 @@ handleSelectedRows(event){
     //     }
     // }
 
-    // handleSave(event){
-    //     const draftValues=event.target.draftValues;
-    //     let mapa={};
-    //     //|
-    //     this.errors={};
-    //     const misRecursos= this.recursos;
-    //     let eventAuxiliar=[];
-    //     for(let i=0; i< misRecursos.length; i++){
-    //         for(let j =0; j<draftValues.length;j++){
-    //             if(draftValues[j].Id==misRecursos[i].Id){
-    //                 if(draftValues[j].dateApiNameSD != null && draftValues[j].dateApiNameED != null ){
-    //                     if(draftValues[j].dateApiNameSD>draftValues[j].dateApiNameED){
-    //                         let error = {};
-    //                         error.rows = {};
-    //                         error.rows[draftValues[j].Id] = { title: 'Too much coffee??..', messages: [ `Usually we start with the "Start Date", wich in this case, as example ${this.ProjectStartDate} then, "End date" that could be ${this.ProjectEndDate}.`], fields: ['dateApiNameSD', 'dateApiNameED']};
-    //                         this.errors = error;
-
-    //                     } else if(draftValues[j].dateApiNameSD < this.ProjectStartDate || draftValues[j].dateApiNameED > this.ProjectEndDate){
-    //                         let error = {};
-    //                         error.rows = {};
-    //                         error.rows[draftValues[j].Id] = { title: 'Please check your input', messages: [ `Dates should be between ${this.ProjectStartDate} and ${this.ProjectEndDate}.`], fields: ['dateApiNameSD', 'dateApiNameED']};
-    //                         this.errors = error;                            
-    //                          } else {
-    //                              if(draftValues[j].Id==misRecursos[i].Id){
-    //                                  mapa={};
-    //                                  mapa=draftValues[j];
-    //                                  mapa["Role"]=misRecursos[i].Role__c;
-    //                                  eventAuxiliar.push(mapa);
-    //                                 }                
-    //                             }
-    //             }
-    //         }
-    //         }
-    //     }
+   
     //     console.log(eventAuxiliar)
     // }
