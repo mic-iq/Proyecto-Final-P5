@@ -1,7 +1,6 @@
 import { LightningElement, api, wire, track } from 'lwc';
 import getResourcesWrapper from '@salesforce/apex/ResourceService.getResourcesWrapper';
 import registerResource from '@salesforce/apex/ResourceService.registerResource';
-//Importado ToastEvent
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { refreshApex } from '@salesforce/apex';
 
@@ -138,26 +137,6 @@ handleSelectedRows(event){
                //agregado el chequeo de fechas ciertas
                     if(draftValues[j].dateApiNameSD < this.ProjectStartDate || draftValues[j].dateApiNameED > this.ProjectEndDate){
                         console.log(`no se puede procesar la solicitud para ${rowsSelected[i].Name} la fecha de inicio y fin deben estar dentro del rango del proyecto`)
-
-                            // this.errors = {
-                            //      rows: {
-                            //          b: {
-                            //              title: 'We found some errors!!.',
-                            //              messages: [
-                            //                 `no se puede procesar la solicitud para ${rowsSelected[i].Name},
-                            //                  la fecha de inicio y fin deben estar dentro del rango del proyecto`,
-                            //                  ],
-                            //              fieldNames: ['dateApiNameSD', 'dateApiNameED']
-                            //          }
-                            //      },                                    
-                            //     table: {
-                            //         title: 'Your entry cannot be savedNo. Fix the errors and try again.',
-                            //         messages: [
-                            //             `no se puede procesar la solicitud para ${rowsSelected[i].Name},
-                            //                  la fecha de inicio y fin deben estar dentro del rango del proyecto`
-                            //         ]
-                            //     }
-                            // };
                                   
                    //Agregado notificacion
                     } else if(draftValues[j].dateApiNameSD>draftValues[j].dateApiNameED){
@@ -168,8 +147,7 @@ handleSelectedRows(event){
                                 mapa=draftValues[j];
                                 mapa["Role"]=rowsSelected[i].Role__c;
                                 eventAuxiliar.push(mapa);
-                                //this.eventAux.push(mapa)
-                               //eventAuxiliar.push(draftValues[j])
+                             
                 }
             }
 
@@ -180,7 +158,6 @@ handleSelectedRows(event){
       
     }
 
-    //console.log(eventAuxiliar, this.recordId);
     
     
    if(eventAuxiliar.length>0){    
@@ -286,7 +263,8 @@ handleSelectedRows(event){
           } else{
             this.arregloDraftsDevelop=toApex;
           }
-        }  
+        }
+        console.log(this.arregloDraftsCons);
 }
 
 
