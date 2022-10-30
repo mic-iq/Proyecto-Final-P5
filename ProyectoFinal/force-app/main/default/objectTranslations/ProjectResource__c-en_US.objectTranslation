@@ -8,47 +8,5 @@
         <plural>true</plural>
         <value>ProjectResources</value>
     </caseValues>
-    <fields>
-        <label><!-- AmountXResource --></label>
-        <name>AmountXResource__c</name>
-    </fields>
-    <fields>
-        <label><!-- End Date --></label>
-        <name>End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- EstimatedAmountXResource --></label>
-        <name>EstimatedAmountXResource__c</name>
-    </fields>
-    <fields>
-        <label><!-- EstimatedHours --></label>
-        <name>EstimatedHours__c</name>
-    </fields>
-    <fields>
-        <label><!-- ProjectLineItem --></label>
-        <name>ProjectLineItem__c</name>
-        <relationshipLabel><!-- ProjectResources --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- RatePerHour --></label>
-        <name>RatePerHour__c</name>
-    </fields>
-    <fields>
-        <label><!-- Squad Lead --></label>
-        <name>Squad_Lead__c</name>
-    </fields>
-    <fields>
-        <label><!-- Start Date --></label>
-        <name>Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- TotalRegisterHours --></label>
-        <name>TotalRegisterHours__c</name>
-    </fields>
-    <fields>
-        <label><!-- User --></label>
-        <name>User__c</name>
-        <relationshipLabel><!-- ProjectResources --></relationshipLabel>
-    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

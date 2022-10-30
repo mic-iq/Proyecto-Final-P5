@@ -129,24 +129,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>EventId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>IsRequiredResource</fullName>
-    </fields>
-    <fields>
-        <fullName>Role</fullName>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>ServiceAppointmentId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>ServiceResourceId</fullName>
-        <type>Lookup</type>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

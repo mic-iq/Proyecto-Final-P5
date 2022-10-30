@@ -73,30 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <fields>
-        <fullName>EventDate</fullName>
-    </fields>
-    <fields>
-        <fullName>EventIdentifier</fullName>
-    </fields>
-    <fields>
-        <fullName>Report</fullName>
-    </fields>
-    <fields>
-        <fullName>Score</fullName>
-    </fields>
-    <fields>
-        <fullName>SecurityEventData</fullName>
-    </fields>
-    <fields>
-        <fullName>SourceIp</fullName>
-    </fields>
-    <fields>
-        <fullName>Summary</fullName>
-    </fields>
-    <fields>
-        <fullName>UserId</fullName>
-        <type>Lookup</type>
-    </fields>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

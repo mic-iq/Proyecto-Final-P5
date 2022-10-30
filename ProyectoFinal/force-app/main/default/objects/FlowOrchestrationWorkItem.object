@@ -73,20 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <listViews>
-        <fullName>ALL_Open_Work_Items</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Status</field>
-            <operation>equals</operation>
-            <value>ASG</value>
-        </filters>
-        <label>All Open Work Items</label>
-    </listViews>
-    <listViews>
-        <fullName>All_Work_Items</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All Work Items</label>
-    </listViews>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

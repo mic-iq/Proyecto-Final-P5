@@ -2751,11 +2751,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Project__c.End_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Project__c.EstimatedAmount__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2787,11 +2782,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.SquadLead__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Project__c.Start_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

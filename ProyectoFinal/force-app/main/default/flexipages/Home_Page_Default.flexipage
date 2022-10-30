@@ -3,27 +3,17 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>hours</componentName>
-                <identifier>c_hours</identifier>
+                <componentName>hoursLoad</componentName>
+                <identifier>c_hoursLoad</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>addTasks</componentName>
+                <identifier>c_addTasks</identifier>
             </componentInstance>
         </itemInstances>
         <name>top</name>
-        <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>home:recentRecordContainer</componentName>
-                <identifier>home_recentRecordContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>home:assistant</componentName>
-                <identifier>home_assistant</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>left</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -33,14 +23,24 @@
                 <identifier>runtime_sales_activities_todayTaskContainer</identifier>
             </componentInstance>
         </itemInstances>
+        <name>left</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>home:recentRecordContainer</componentName>
+                <identifier>home_recentRecordContainer</identifier>
+            </componentInstance>
+        </itemInstances>
         <name>middle</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>hourTask</componentName>
-                <identifier>c_hourTask</identifier>
+                <componentName>home:assistant</componentName>
+                <identifier>home_assistant</identifier>
             </componentInstance>
         </itemInstances>
         <name>right</name>

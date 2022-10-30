@@ -73,35 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>Amount</fullName>
-    </fields>
-    <fields>
-        <fullName>CartId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>CartItemId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>CartItemPriceAdjustmentId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Description</fullName>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-    </fields>
-    <fields>
-        <fullName>TaxCalculationDate</fullName>
-    </fields>
-    <fields>
-        <fullName>TaxRate</fullName>
-    </fields>
-    <fields>
-        <fullName>TaxType</fullName>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

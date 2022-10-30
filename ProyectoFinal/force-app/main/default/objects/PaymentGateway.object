@@ -115,30 +115,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <fields>
-        <fullName>Comments</fullName>
-    </fields>
-    <fields>
-        <fullName>ExternalReference</fullName>
-    </fields>
-    <fields>
-        <fullName>MerchantCredentialId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>PaymentGatewayName</fullName>
-    </fields>
-    <fields>
-        <fullName>PaymentGatewayProviderId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Status</fullName>
-    </fields>
-    <listViews>
-        <fullName>PaymentGateway</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

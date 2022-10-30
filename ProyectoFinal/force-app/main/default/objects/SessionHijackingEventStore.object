@@ -73,57 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <fields>
-        <fullName>CurrentIp</fullName>
-    </fields>
-    <fields>
-        <fullName>CurrentPlatform</fullName>
-    </fields>
-    <fields>
-        <fullName>CurrentScreen</fullName>
-    </fields>
-    <fields>
-        <fullName>CurrentUserAgent</fullName>
-    </fields>
-    <fields>
-        <fullName>CurrentWindow</fullName>
-    </fields>
-    <fields>
-        <fullName>EventDate</fullName>
-    </fields>
-    <fields>
-        <fullName>EventIdentifier</fullName>
-    </fields>
-    <fields>
-        <fullName>PreviousIp</fullName>
-    </fields>
-    <fields>
-        <fullName>PreviousPlatform</fullName>
-    </fields>
-    <fields>
-        <fullName>PreviousScreen</fullName>
-    </fields>
-    <fields>
-        <fullName>PreviousUserAgent</fullName>
-    </fields>
-    <fields>
-        <fullName>PreviousWindow</fullName>
-    </fields>
-    <fields>
-        <fullName>Score</fullName>
-    </fields>
-    <fields>
-        <fullName>SecurityEventData</fullName>
-    </fields>
-    <fields>
-        <fullName>SourceIp</fullName>
-    </fields>
-    <fields>
-        <fullName>Summary</fullName>
-    </fields>
-    <fields>
-        <fullName>UserId</fullName>
-        <type>Lookup</type>
-    </fields>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

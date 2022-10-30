@@ -128,47 +128,6 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <fields>
-        <fullName>IsPublished</fullName>
-        <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsPublishedInPublicKb</fullName>
-        <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>SolutionName</fullName>
-        <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>SolutionNote</fullName>
-        <trackHistory>true</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Status</fullName>
-        <trackHistory>true</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <listViews>
-        <fullName>AllReviewedSolutions</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>SOLUTION.STATUS_CODE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>All Reviewed Solutions</label>
-    </listViews>
-    <listViews>
-        <fullName>AllUnreviewedSolutions</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>SOLUTION.STATUS_CODE</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>All Unreviewed Solutions</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>SOLUTION.ISSUE</customTabListAdditionalFields>
         <customTabListAdditionalFields>SOLUTION.SOLUTION_NUMBER</customTabListAdditionalFields>

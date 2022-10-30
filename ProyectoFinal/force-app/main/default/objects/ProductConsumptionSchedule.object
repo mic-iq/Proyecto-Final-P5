@@ -129,13 +129,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
-    <fields>
-        <fullName>ConsumptionScheduleId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ProductId</fullName>
-        <type>Lookup</type>
-    </fields>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

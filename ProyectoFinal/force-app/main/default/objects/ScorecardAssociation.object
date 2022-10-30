@@ -129,13 +129,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>ScorecardId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>TargetEntityId</fullName>
-        <type>Lookup</type>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

@@ -129,30 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>AreAllEngmtChnlSupported</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>EngagementChannelTypeId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>WorkTypeId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>MasterDetail</type>
-    </fields>
-    <listViews>
-        <fullName>All_EngagementChannelWorkTypes</fullName>
-        <filterScope>Everything</filterScope>
-        <label>Todos los tipos de trabajos de canales de participación</label>
-    </listViews>
-    <listViews>
-        <fullName>My_EngagementChannelWorkTypes</fullName>
-        <filterScope>Mine</filterScope>
-        <label>Mis tipos de trabajos de canales de participación</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>

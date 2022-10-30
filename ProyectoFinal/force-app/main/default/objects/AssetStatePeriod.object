@@ -115,30 +115,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>Amount</fullName>
-    </fields>
-    <fields>
-        <fullName>AssetId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>EndDate</fullName>
-    </fields>
-    <fields>
-        <fullName>Mrr</fullName>
-    </fields>
-    <fields>
-        <fullName>Quantity</fullName>
-    </fields>
-    <fields>
-        <fullName>StartDate</fullName>
-    </fields>
-    <listViews>
-        <fullName>AssetStatePeriod</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Asset</customTabListAdditionalFields>
         <customTabListAdditionalFields>StartDate</customTabListAdditionalFields>

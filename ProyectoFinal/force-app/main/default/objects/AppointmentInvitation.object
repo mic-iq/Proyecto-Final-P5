@@ -129,58 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>AppointmentTopicId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>AppointmentTopicType</fullName>
-    </fields>
-    <fields>
-        <fullName>BookingEndDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>BookingStartDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>InvitationIdentifier</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>InvitationUrl</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsActive</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ServiceTerritoryId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>UrlExpiryDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <listViews>
-        <fullName>All_AppointmentInvitations</fullName>
-        <filterScope>Everything</filterScope>
-        <label>Todos los invitaciones de citas</label>
-    </listViews>
-    <listViews>
-        <fullName>My_AppointmentInvitations</fullName>
-        <filterScope>Mine</filterScope>
-        <label>Mis invitaciones de citas</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>BookingStartDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>BookingEndDate</customTabListAdditionalFields>

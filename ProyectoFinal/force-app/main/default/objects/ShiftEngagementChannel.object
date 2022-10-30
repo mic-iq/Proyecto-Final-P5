@@ -129,30 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>AreAllEngmtChnlSupported</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>EngagementChannelTypeId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ShiftId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>MasterDetail</type>
-    </fields>
-    <listViews>
-        <fullName>All_ShiftEngagementChannels</fullName>
-        <filterScope>Everything</filterScope>
-        <label>Todos los canales de participación</label>
-    </listViews>
-    <listViews>
-        <fullName>My_ShiftEngagementChannels</fullName>
-        <filterScope>Mine</filterScope>
-        <label>Mis canales de participación</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>

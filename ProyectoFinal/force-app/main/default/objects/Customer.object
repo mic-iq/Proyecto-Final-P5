@@ -129,24 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>CustomerStatusType</fullName>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-    </fields>
-    <fields>
-        <fullName>PartyId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>TotalLifeTimeValue</fullName>
-    </fields>
-    <listViews>
-        <fullName>All_Customers</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All Customers</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>TotalLifeTimeValue</customTabListAdditionalFields>
         <searchResultsAdditionalFields>TotalLifeTimeValue</searchResultsAdditionalFields>
