@@ -1,0 +1,28 @@
+<!-- sldsValidatorIgnore - hiding datatable accessibility warning -->
+<template>
+    <lightning-card
+    title={projectName} icon-name="custom:custom19"
+    >
+        <div class="slds-var-m-around_medium">
+            <template if:true={tasks}>
+                <lightning-datatable
+                    onrowaction={handleUpdateHours}
+                    key-field="Id"
+                    data={tasks}
+                    errors={errors}
+                    columns={columns}
+                    onsave={handleSave}
+                    draft-values={draftValues}
+                    hide-checkbox-column
+                    suppress-bottom-bar="true"
+                >
+                </lightning-datatable>
+            </template>
+            <template if:true={tasks.error}>
+                <!-- <c-error-panel errors={tasks.error}></c-error-panel> -->
+            </template>
+        </div>
+    </lightning-card>
+</template>
+<!--oncellchange={handleHours}-->
+<!--onrowaction={handleUpdateHours}-->
