@@ -1,5 +1,76 @@
 <template>
     <template if:true={tasks}>
+        <lightning-card title={projectName} icon-name="action:new_note">
+            <lightning-card>
+                <div class="slds-grid slds-wrap slds-box" style="background:rgba(126, 206, 249, 0.39);font-size:14px;font-weight:500">
+                    <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+                        <span class="slds-box_xx-small  slds-align_absolute-center"><strong>Task</strong> </span>
+                    </div>
+                    <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+                        <span class="slds-box_xx-small slds-align_absolute-center"><strong>Status</strong></span>
+                    </div>
+                    <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+                        <div class="slds-box_xx-small slds-align_absolute-center"><strong>Estimated Hours</strong></div>
+                    </div>
+                    <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+                        <span class="slds-box_xx-small slds-align_absolute-center"><strong>Registered Hours</strong></span>
+                    </div>
+                    <div class="slds-col  slds-medium-size_4-of-12 slds-align_absolute-center">
+                        <span class="slds-box_xx-small slds-align_absolute-center"><strong>Actions</strong></span>
+                    </div>
+                </div>
+            </lightning-card>  
+        <template for:each={tasks} for:item="task" >
+            <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                <c-task onhoursadded={updateTasks} task={task}></c-task>
+              
+            
+    </lightning-layout-item>
+        </template>
+    </lightning-card>
+     </template>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template>
+    <template if:true={tasks}>
         <template for:each={tasks} for:item="task" >
             <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
 
@@ -26,7 +97,7 @@
                     
                     <div class="slds-grid slds-wrap slds-box" style="background:rgba(177, 231, 215, 0.39);font-size:14px;font-weight:500">
                         <div class="slds-col slds-small-size_12-of-12 slds-medium-size_2-of-12 slds-large-size_2-of-12 slds-align_absolute-center">
-                            <span class="  slds-align_absolute-center">{tasks.Name}nombre</span>
+                            <span class="slds-box_xx-small  slds-align_absolute-center">{tasks.Name}nombre</span>
                         </div>
                         <div class="slds-col slds-small-size_12-of-12 slds-medium-size_1-of-12 slds-large-size_1-of-12 slds-align_absolute-center">
                             <span class="slds-box_xx-small slds-align_absolute-center">{State__c}estado</span>
@@ -55,4 +126,4 @@
     </lightning-layout-item>
         </template>
      </template>
-</template>
+</template> -->

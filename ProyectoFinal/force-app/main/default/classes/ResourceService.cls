@@ -1,7 +1,9 @@
 public class ResourceService {
   @auraEnabled
-     public static Boolean registerResource(Id ProjectId,List<Map<String,Object>> selected){
-         Boolean insertados = false;
+  public static Boolean registerResource(Id ProjectId,List<Map<String,Object>> selected){
+        Boolean insertados = false;
+        Double cantidadParaInsertar = selected.size();
+       
           system.debug('Estos son mis recursos seleccionados: '+selected);
          system.debug('Estoy en proyecto : '+ProjectId);
          if(selected.size()>0){
@@ -30,7 +32,7 @@ public class ResourceService {
                 
               if(ultimoProyectoEnElqueTrabajo.End_Date__c >= fechaInicioDesdeInterfaz){
                  system.debug('Este usuario No puede trabajar en este proyecto');
-                 continue;
+                break;
                }else if(ultimoProyectoEnElqueTrabajo.End_Date__c < startDate || ultimoProyectoEnElqueTrabajo.End_Date__c < fechaInicioDesdeInterfaz){
                         ProjectResource__c recurso = new ProjectResource__c();
                         recurso.User__c = IdDeUsuarioSeleccionado;
@@ -61,11 +63,15 @@ public class ResourceService {
                         recurso.End_Date__c = fechaFinalDesdeInterfaz;
                        system.debug('recurso con dato : '+recurso);
                         recursosAInsertar.add(recurso);
+                      
                 }
             }
             if(recursosAInsertar.size()>0){
                 insert recursosAInsertar;
-                insertados = true;
+                if(recursosAInsertar.size() == cantidadParaInsertar){
+                    insertados = true;
+                }
+                
             }  
              
          }
