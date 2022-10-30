@@ -79,6 +79,7 @@ export default class ResourceAllocation extends LightningElement {
         });
 
         this._hours=vector;
+        //this.horas = data.project.ProjectLineItems__r[0].QuantityHours__c;
         this.ProjectStartDate = data.project.Start_Date__c;
         this.ProjectEndDate = data.project.End_Date__c;
 
@@ -147,7 +148,8 @@ handleSelectedRows(event){
                                 mapa=draftValues[j];
                                 mapa["Role"]=rowsSelected[i].Role__c;
                                 eventAuxiliar.push(mapa);
-                              
+                                //this.eventAux.push(mapa)
+                               //eventAuxiliar.push(draftValues[j])
                 }
             }
 
@@ -157,6 +159,9 @@ handleSelectedRows(event){
 
       
     }
+
+    //console.log(eventAuxiliar, this.recordId);
+    
     
    if(eventAuxiliar.length>0){    
     this.arreglo=eventAuxiliar;
@@ -285,5 +290,38 @@ handleSelectedRows(event){
           }
         }
         console.log(this.arregloDraftsCons);
-  }
 }
+
+
+}
+
+ // console.log("DATA: "+JSON.stringify(data));
+    // console.log(this.ProjectStartDate +" "+ this.ProjectEndDate )
+
+    
+
+    //  @wire(getResourcesWrapper,{projectId: '$recordId', Role:'Developer'})
+    //    developer(ResultDev){
+    //     const { data, error } = ResultDev;
+    //     if (data) {
+    //         this.recursosDeveloper = data.resources;
+    //         this.hoursDev = data.project.ProjectLineItems__r[0].QuantityHours__c;
+    //     } else if (error) {
+    //         this.error = error;
+    //     }
+    // }
+
+    // @wire(getResourcesWrapper,{projectId: '$recordId', Role:'Architect'})
+    //    architect(ResultArch){
+    //     const { data, error } = ResultArch;
+    //     if (data) {
+    //         this.recursosArchitect = data.resources;
+    //         this.hoursArch = data.project.ProjectLineItems__r[0].QuantityHours__c;
+    //     } else if (error) {
+    //         this.error = error;
+    //     }
+    // }
+
+   
+    //     console.log(eventAuxiliar)
+    // }
