@@ -269,34 +269,3 @@ handleSelectedRows(event){
 
 
 }
-
- // console.log("DATA: "+JSON.stringify(data));
-    // console.log(this.ProjectStartDate +" "+ this.ProjectEndDate )
-
-    
-
-    //  @wire(getResourcesWrapper,{projectId: '$recordId', Role:'Developer'})
-    //    developer(ResultDev){
-    //     const { data, error } = ResultDev;
-    //     if (data) {
-    //         this.recursosDeveloper = data.resources;
-    //         this.hoursDev = data.project.ProjectLineItems__r[0].QuantityHours__c;
-    //     } else if (error) {
-    //         this.error = error;
-    //     }
-    // }
-
-    // @wire(getResourcesWrapper,{projectId: '$recordId', Role:'Architect'})
-    //    architect(ResultArch){
-    //     const { data, error } = ResultArch;
-    //     if (data) {
-    //         this.recursosArchitect = data.resources;
-    //         this.hoursArch = data.project.ProjectLineItems__r[0].QuantityHours__c;
-    //     } else if (error) {
-    //         this.error = error;
-    //     }
-    // }
-
-   
-    //     console.log(eventAuxiliar)
-    // }
