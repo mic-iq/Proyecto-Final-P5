@@ -20,15 +20,14 @@
                     </div>
                 </div>
             </lightning-card>  
-        <template for:each={tasks} for:item="task" >
-            <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
-                <c-task onhoursadded={updateTasks} task={task}></c-task>
-              
-            
-    </lightning-layout-item>
-        </template>
-    </lightning-card>
-     </template>
+                <template for:each={tasks} for:item="task" >
+                    <lightning-layout-item key={task.Id} padding="around-small" size="12" small-device-size="6" medium-device-size="4" large-device-size="3">
+                    <c-task state-task={task.State__c} onhoursadded={updateTasks} task={task}></c-task>                           
+                    </lightning-layout-item>
+                </template>
+        </lightning-card>
+    </template>
+    
 </template>
 
 

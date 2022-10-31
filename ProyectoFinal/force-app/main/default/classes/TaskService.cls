@@ -14,10 +14,19 @@ public class TaskService {
     //Metodo para obtener tareas filtradas por usuario logueado *
     @AuraEnabled(cacheable=true)
     public static TaskWrapper getTasks(Id currentUser) {
-        List<Project_Task__c> tasksList = [ SELECT Name,State__c,EstimatedHours__c,RegisterHours__c,Project__r.Alias__c 
+        List<Project_Task__c> tasksList = [ 
+                                            SELECT Name,
+                                            State__c,
+                                            EstimatedHours__c,
+                                            RegisterHours__c,
+                                            Project__r.Alias__c,
+                                            Project__r.Total_Tasks__c, 
+                                            Project__r.Total_Tasks_Completed__c
                                             FROM Project_Task__c 
-                                            WHERE ProjectResource__r.User__c =:currentUser AND State__c != 'Completed' 
-                                            ORDER BY State__c DESC ];
+                                            WHERE ProjectResource__r.User__c =:currentUser 
+                                            AND State__c != 'Completed' 
+                                            ORDER BY State__c DESC
+                                             ];
         return new TaskWrapper(tasksList);
     }
 

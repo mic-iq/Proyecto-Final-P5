@@ -2640,6 +2640,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectLineItem__c.Estimated_Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectLineItem__c.Hours_To_Cover__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ProjectLineItem__c.QuantityHours__c</field>
         <readable>true</readable>
@@ -2672,6 +2682,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ProjectResource__c.EstimatedHours__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ProjectResource__c.Estimated_Hours__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2777,6 +2792,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Project__c.Project_Manager__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Project__c.Selected_Squad_Lead__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

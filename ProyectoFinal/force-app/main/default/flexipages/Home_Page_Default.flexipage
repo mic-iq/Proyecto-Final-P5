@@ -3,12 +3,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>hoursLoad</componentName>
-                <identifier>c_hoursLoad</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentName>addTasks</componentName>
                 <identifier>c_addTasks</identifier>
             </componentInstance>
