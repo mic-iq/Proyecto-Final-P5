@@ -7,7 +7,8 @@ public class ResourceService {
           system.debug('Estos son mis recursos seleccionados: '+selected);
          system.debug('Estoy en proyecto : '+ProjectId);
          if(selected.size()>0){
-            Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+          //  Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+              Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,Hours_To_Cover__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
             List<ProjectLineItem__C>ProjectLineItemList = project.ProjectLineItems__r;
             Date startDate = project.Start_Date__c;
             Date endDate = project.End_Date__c;
@@ -83,7 +84,8 @@ public class ResourceService {
 
    @AuraEnabled(cacheable=true)
     public static ResourceWrapper getResourcesWrapper(Id projectId){
-        Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+        //Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,QuantityHours__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
+        Project__c project = [SELECT Id, Start_Date__c,End_Date__c, (SELECT Id,Hours_To_Cover__c,Role__c FROM ProjectLineItems__r) FROM Project__c WHERE Id=:projectId];
         List<List<User>> resourcesAvailable = getResourcesWrap(project);
       //  system.debug('Estos son mis recursos: '+resourcesAvailable);
         ResourceWrapper resourceWrap = new ResourceWrapper(project,resourcesAvailable);

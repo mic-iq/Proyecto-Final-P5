@@ -2,34 +2,31 @@
     <template if:true={allResources}>
         <template for:each={allResources} for:item="resource" for:index="index">
             <div key={Role__c}>
-               
                 <template iterator:recurso={resource}>
-                    <div key={recurso.value.id}>
+                    <div key={recurso.value.Id}>
                         <div if:true={recurso.first}>
                             <c-header index={index} hr={_hours} role={recurso.value.Role__c} icons-role={iconsRole}></c-header>
                          <div class="slds-var-m-around_medium">
-                            <lightning-datatable                        
-                            key-field="Id"
-                            data={resource}
-                            columns={columns}
-                            draft-values={draftValues}
-                            errors={errors}
-                            oncellchange={handleSave}
-                            onrowselection={handleSelectedRows}
-                            show-row-number-column="true"
-                            suppress-bottom-bar="true"
-                            >
-                            </lightning-datatable>
+                                    <lightning-datatable                        
+                                    key-field="Id"
+                                    data={resource}
+                                    columns={columns}
+                                    draft-values={draftValues}
+                                    errors={errors}
+                                    oncellchange={handleSave}
+                                    onrowselection={handleSelectedRows}
+                                    show-row-number-column="true"
+                                    suppress-bottom-bar="true"
+                                    >
+                                    </lightning-datatable>
+                            </div>
                         </div>
-                        <!-- <c-auxiliar datos={resource} > </c-auxiliar> -->
-                   
-                </div>
                     </div>
                 </template>
             </div>
         </template>
     </template>
-     <div class=”slds-align_absolute-center”>
+        <div class=”slds-align_absolute-center”>
             <lightning-button variant="brand" label="Submit" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
-     </div>
+        </div>
 </template>
