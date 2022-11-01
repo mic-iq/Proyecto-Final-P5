@@ -56,7 +56,6 @@ export default class ResourceAllocation extends LightningElement {
     @track arregloDraftsCons=[];
     @track arregloDraftsDevelop=[];
     @track arrayComplete=[];
-
     
 
     @api
@@ -70,16 +69,16 @@ export default class ResourceAllocation extends LightningElement {
      const { data, error } = Result;
      this._wireResult=Result;
      if (data) {
+       debugger
         this.allResources = data.resources;
         let vector=[];
         this.allResources.forEach((element, index) => {
-            vector[index]=data.project.ProjectLineItems__r[index].QuantityHours__c 
+            vector[index]=data.project.ProjectLineItems__r[index].Hours_To_Cover__c 
             
 
         });
 
         this._hours=vector;
-        //this.horas = data.project.ProjectLineItems__r[0].QuantityHours__c;
         this.ProjectStartDate = data.project.Start_Date__c;
         this.ProjectEndDate = data.project.End_Date__c;
 
@@ -138,26 +137,6 @@ handleSelectedRows(event){
                //agregado el chequeo de fechas ciertas
                     if(draftValues[j].dateApiNameSD < this.ProjectStartDate || draftValues[j].dateApiNameED > this.ProjectEndDate){
                         console.log(`no se puede procesar la solicitud para ${rowsSelected[i].Name} la fecha de inicio y fin deben estar dentro del rango del proyecto`)
-
-                            // this.errors = {
-                            //      rows: {
-                            //          b: {
-                            //              title: 'We found some errors!!.',
-                            //              messages: [
-                            //                 `no se puede procesar la solicitud para ${rowsSelected[i].Name},
-                            //                  la fecha de inicio y fin deben estar dentro del rango del proyecto`,
-                            //                  ],
-                            //              fieldNames: ['dateApiNameSD', 'dateApiNameED']
-                            //          }
-                            //      },                                    
-                            //     table: {
-                            //         title: 'Your entry cannot be savedNo. Fix the errors and try again.',
-                            //         messages: [
-                            //             `no se puede procesar la solicitud para ${rowsSelected[i].Name},
-                            //                  la fecha de inicio y fin deben estar dentro del rango del proyecto`
-                            //         ]
-                            //     }
-                            // };
                                   
                    //Agregado notificacion
                     } else if(draftValues[j].dateApiNameSD>draftValues[j].dateApiNameED){
@@ -190,103 +169,96 @@ handleSelectedRows(event){
 }
 
     handleClick(){
-      let mapa={};
-      let arrayArch=[];
-      let arrayDev=[];
-      let arrayCon=[];
-      this.arrayComplete;      
-         if(this.arregloDraftsArch.length>0){
-            JSON.stringify(this.arregloDraftsArch)
-            for(let i=0; i<this.arregloDraftsArch.length;i++){
-              
-              mapa={};
-              mapa["Role"]=this.arregloDraftsArch[i].Role;
-              mapa["dateApiNameSD"]=this.arregloDraftsArch[i].dateApiNameSD;
-              mapa["dateApiNameED"]=this.arregloDraftsArch[i].dateApiNameED;
-              mapa["Id"]=this.arregloDraftsArch[i].Id;
-              arrayArch.push(mapa);
+      let rta=[]; 
+      let arregloArch=[];
+      arregloArch=JSON.parse(JSON.stringify(this.arregloDraftsArch))
+      let arregloDevelop=[];
+      arregloDevelop=JSON.parse(JSON.stringify(this.arregloDraftsDevelop))
+      let arregloCons=[];
+      arregloCons=JSON.parse(JSON.stringify(this.arregloDraftsCons))
+      debugger
+      this.arrayComplete=[].concat(arregloArch, arregloCons, arregloDevelop)
+      console.log(this.arrayComplete)
+      console.log("concatenado")
+        for(let n=0; n<this.arrayComplete.length;n++){
+          if(this.arrayComplete[n].length===undefined){
+            rta.push(this.arrayComplete[n])
+          } else{
+            for(let x=0; x<this.arrayComplete[n].length;x++){
+              rta.push(this.arrayComplete[n][x])
             }
           }
-          if(this.arregloDraftsCons.length>0){
-            JSON.stringify(this.arregloDraftsCons)
-            for(let j=0; j<this.arregloDraftsCons.length;j++){
-             mapa={};
-             mapa["Role"]=this.arregloDraftsCons[j].Role;
-             mapa["dateApiNameSD"]=this.arregloDraftsCons[j].dateApiNameSD;
-             mapa["dateApiNameED"]=this.arregloDraftsCons[j].dateApiNameED;
-             mapa["Id"]=this.arregloDraftsCons[j].Id;
-             arrayCon.push(mapa);       
-             }
-          }
-          if(this.arregloDraftsDevelop.length>0){
-            JSON.stringify(this.arregloDraftsDevelop)
-            for(let f=0; f< this.arregloDraftsDevelop.length;f++){
-              mapa={};
-              mapa["Role"]=this.arregloDraftsDevelop[f].Role;
-              mapa["dateApiNameSD"]=this.arregloDraftsDevelop[f].dateApiNameSD;
-              mapa["dateApiNameED"]=this.arregloDraftsDevelop[f].dateApiNameED;
-              mapa["Id"]=this.arregloDraftsDevelop[f].Id;
-              arrayDev.push(mapa);
-            }
-          }
-          
-          
-          let respuesta=[]
+        }
+      console.log(rta)
+      console.log("respuesta")
+      
 
-          let arch = JSON.parse(JSON.stringify(arrayArch))
-          let dev = JSON.parse(JSON.stringify(arrayDev))
-          let con = JSON.parse(JSON.stringify(arrayCon))
-          
-          if(arch.length>0){
-            for(let f=0; f< arch.length;f++){
-              respuesta.push(arch[f])
-            }
-          }
-          if(dev.length>0){
-            for(let f=0; f< dev.length;f++){
-              respuesta.push(dev[f])
-            }
-          }
-          if(con.length>0){
-            for(let f=0; f< con.length;f++){
-              respuesta.push(con[f])
-            }
-          }
+          registerResource({ProjectId: this.recordId, selected:rta})
 
-          console.log(respuesta);
-          
-     registerResource({ProjectId: this.recordId, selected:respuesta})
-     
-    .then(resultado => {
-        if(resultado==true){
-         return this.refresh()      
-         }
-     })
-     .catch(error=> console.log(JSON.stringify(error) + " Este es mi error"))
+          .then(resultado => {
+              if(resultado==true){
+                const toast = new ShowToastEvent({
+                  title:'Successful insertion',
+                  message:'Your resources have been inserted',
+                  variant: 'Success',
+              });
+                this.dispatchEvent(toast);
+                  this.arregloDraftsArch=[];
+                  this.arregloDraftsCons=[];
+                  this.arregloDraftsDevelop=[];
+                  this.arrayComplete=[];
+                  return this.refresh()
+               }else{
+                const toast = new ShowToastEvent({
+                  title:'Insert Failed',
+                  message:'Please check the dates of the resources that were not inserted',
+                  variant: 'error',
+              });
+                  this.dispatchEvent(toast);
+                  this.arregloDraftsArch=[];
+                  this.arregloDraftsCons=[];
+                  this.arregloDraftsDevelop=[];
+                  this.arrayComplete=[];
+                  return this.refresh();
+               }
+           })
+           .catch(error=> console.log(JSON.stringify(error) + " Este es mi error"))
     }
 
-    enqueueWork(toApex){ 
+    enqueueWork(toApex){
+      // Traigo los valores de la tabla y los encolo en atributos trackeables 
         if(toApex[0]["Role"]=="Consultant"){
           if(this.arregloDraftsCons.length==0){
             this.arregloDraftsCons.push(toApex);
+            this.arregloDraftsCons=JSON.parse(JSON.stringify(this.arregloDraftsCons))
           } else{
             this.arregloDraftsCons=toApex;
+            this.arregloDraftsCons=JSON.parse(JSON.stringify(this.arregloDraftsCons))
           }
         }
+
    			if(toApex[0]["Role"]=="Architect"){
           if(this.arregloDraftsArch.length==0){
             this.arregloDraftsArch.push(toApex);
+            this.arregloDraftsArch=JSON.parse(JSON.stringify(this.arregloDraftsArch))
           } else{
             this.arregloDraftsArch=toApex;
+            this.arregloDraftsArch=JSON.parse(JSON.stringify(this.arregloDraftsArch))
           }
         }
-   			if(toApex[0]["Role"]=="Developer"){
+   			
+        if(toApex[0]["Role"]=="Developer"){
           if(this.arregloDraftsDevelop.length==0){
             this.arregloDraftsDevelop.push(toApex);
+            this.arregloDraftsDevelop=JSON.parse(JSON.stringify(this.arregloDraftsDevelop))
           } else{
             this.arregloDraftsDevelop=toApex;
+            this.arregloDraftsDevelop=JSON.parse(JSON.stringify(this.arregloDraftsDevelop))
           }
-        }  
+
+        }
+        
+        
 }
 
 

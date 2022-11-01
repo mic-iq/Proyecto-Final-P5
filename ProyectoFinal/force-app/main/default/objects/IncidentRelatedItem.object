@@ -129,33 +129,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>AssetId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Comment</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>ImpactLevel</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>ImpactType</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>IncidentId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

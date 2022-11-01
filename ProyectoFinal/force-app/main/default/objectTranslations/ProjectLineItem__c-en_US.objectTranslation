@@ -8,34 +8,5 @@
         <plural>true</plural>
         <value>Project Items</value>
     </caseValues>
-    <fields>
-        <label><!-- AmountxRole --></label>
-        <name>AmountxRole__c</name>
-    </fields>
-    <fields>
-        <label><!-- EstimatedAmountXRole --></label>
-        <name>EstimatedAmountXRole__c</name>
-    </fields>
-    <fields>
-        <label><!-- EstimatedHours --></label>
-        <name>EstimatedHours__c</name>
-    </fields>
-    <fields>
-        <label><!-- Project --></label>
-        <name>Project__c</name>
-        <relationshipLabel><!-- Project Items --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- QuantityHours --></label>
-        <name>QuantityHours__c</name>
-    </fields>
-    <fields>
-        <label><!-- Role --></label>
-        <name>Role__c</name>
-    </fields>
-    <fields>
-        <label><!-- TotalRegisterHoursxRole --></label>
-        <name>TotalRegisterHoursxRole__c</name>
-    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

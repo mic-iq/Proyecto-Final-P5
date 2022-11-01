@@ -73,13 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>ContactId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>EntitlementId</fullName>
-        <type>MasterDetail</type>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

@@ -87,58 +87,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>Amount</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>AppliedDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>AssociatedLineId</fullName>
-        <inlineHelpText>The application that this credit memo invoice application has unapplied.</inlineHelpText>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>CreditMemoId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Date</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Description</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>EffectiveDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>HasBeenUnapplied</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>ImpactAmount</fullName>
-        <inlineHelpText>Impact on the balance of the credit memo and invoice. Unapplied-type applications have a negative impact, while Applied-type applications have a positive impact.</inlineHelpText>
-    </fields>
-    <fields>
-        <fullName>InvoiceId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>Type</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>UnappliedDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
     <searchLayouts>
         <searchResultsAdditionalFields>Amount</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type</searchResultsAdditionalFields>

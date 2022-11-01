@@ -11,34 +11,33 @@
         <label>Developer</label>
     </customValue>
     <customValue>
-        <fullName>Administrator</fullName>
+        <fullName>Architect</fullName>
         <default>false</default>
-        <label>Administrator</label>
-    </customValue>
-    <customValue>
-        <fullName>Business Analyst</fullName>
-        <default>false</default>
-        <label>Business Analyst</label>
-    </customValue>
-    <customValue>
-        <fullName>Designer</fullName>
-        <default>false</default>
-        <label>Designer</label>
+        <label>Architect</label>
     </customValue>
     <customValue>
         <fullName>Sales</fullName>
         <default>false</default>
+        <isActive>false</isActive>
         <label>Sales</label>
+    </customValue>
+    <customValue>
+        <fullName>Designer</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Designer</label>
+    </customValue>
+    <customValue>
+        <fullName>Business Analyst</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Business Analyst</label>
     </customValue>
     <customValue>
         <fullName>Marketing</fullName>
         <default>false</default>
+        <isActive>false</isActive>
         <label>Marketing</label>
-    </customValue>
-    <customValue>
-        <fullName>Architect</fullName>
-        <default>false</default>
-        <label>Architect</label>
     </customValue>
     <masterLabel>Role</masterLabel>
     <sorted>false</sorted>

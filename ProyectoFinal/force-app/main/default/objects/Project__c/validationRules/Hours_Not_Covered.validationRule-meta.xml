@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hours_Not_Covered</fullName>
+    <active>false</active>
+    <errorConditionFormula>EstimatedHours__c  &lt;  Opportunity__r.TotalOpportunityQuantity</errorConditionFormula>
+    <errorMessage>The hours have not been covered, please complete the assignment of resources.</errorMessage>
+</ValidationRule>

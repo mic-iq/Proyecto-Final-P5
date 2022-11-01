@@ -8,107 +8,28 @@
         <plural>true</plural>
         <value>Projects</value>
     </caseValues>
-    <fields>
-        <label><!-- Account --></label>
-        <name>Account__c</name>
-    </fields>
-    <fields>
-        <label><!-- Name --></label>
-        <name>Alias__c</name>
-    </fields>
-    <fields>
-        <label><!-- Amount --></label>
-        <name>Amount__c</name>
-    </fields>
-    <fields>
-        <label><!-- End Date --></label>
-        <name>End_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Estimated Amount --></label>
-        <name>EstimatedAmount__c</name>
-    </fields>
-    <fields>
-        <label><!-- Estimated Hours --></label>
-        <name>EstimatedHours__c</name>
-    </fields>
-    <fields>
-        <label><!-- Opportunity --></label>
-        <name>Opportunity__c</name>
-        <relationshipLabel><!-- Projects --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Squad Lead --></label>
-        <name>ProjectResource__c</name>
-        <relationshipLabel><!-- Projects --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Project Alias --></label>
-        <name>Project_Alias__c</name>
-    </fields>
-    <fields>
-        <label><!-- Project Manager --></label>
-        <name>Project_Manager__c</name>
-    </fields>
-    <fields>
-        <label><!-- Squad Lead User --></label>
-        <name>SquadLead__c</name>
-        <relationshipLabel><!-- Projects --></relationshipLabel>
-    </fields>
-    <fields>
-        <label><!-- Start Date --></label>
-        <name>Start_Date__c</name>
-    </fields>
-    <fields>
-        <label><!-- Status --></label>
-        <name>Status__c</name>
-        <picklistValues>
-            <masterLabel>Completed</masterLabel>
-            <translation><!-- Completed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>In Progress</masterLabel>
-            <translation><!-- In Progress --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pre-Kickoff</masterLabel>
-            <translation><!-- Pre-Kickoff --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Total Cost --></label>
-        <name>TotalCost__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Tasks Completed --></label>
-        <name>Total_Tasks_Completed__c</name>
-    </fields>
-    <fields>
-        <label><!-- Total Tasks --></label>
-        <name>Total_Tasks__c</name>
-    </fields>
     <layouts>
         <layout>Project Layout</layout>
         <sections>
-            <label><!-- Custom Links --></label>
+            <label></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage><!-- The project is in loss, please check the estimated amount. --></errorMessage>
+        <errorMessage></errorMessage>
         <name>Earnings_vs_Losses</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- The hours have not been covered, please complete the assignment of resources. --></errorMessage>
+        <errorMessage></errorMessage>
         <name>Hours_Not_Covered</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- A project can not be update while is in &apos;In Progress&apos; --></errorMessage>
+        <errorMessage></errorMessage>
         <name>Not_Editing_Allow_While_In_Progress</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Please assign a Squad Lead to the project --></errorMessage>
+        <errorMessage></errorMessage>
         <name>Squad_Lead_Assigned</name>
     </validationRules>
 </CustomObjectTranslation>

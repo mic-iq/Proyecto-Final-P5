@@ -14,6 +14,11 @@
             <axisBinding>y</axisBinding>
             <column>Project__c.Amount__c</column>
         </chartSummaries>
+        <chartSummaries>
+            <aggregate>Sum</aggregate>
+            <axisBinding>y</axisBinding>
+            <column>Project__c.TotalCost__c</column>
+        </chartSummaries>
         <chartType>VerticalColumn</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
@@ -38,6 +43,10 @@
     <columns>
         <aggregateTypes>Sum</aggregateTypes>
         <field>Project__c.EstimatedAmount__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Project__c.TotalCost__c</field>
     </columns>
     <format>Summary</format>
     <groupingsDown>

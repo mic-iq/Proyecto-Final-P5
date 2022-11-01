@@ -73,48 +73,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>CartId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>DeliverToName</fullName>
-    </fields>
-    <fields>
-        <fullName>DesiredDeliveryDate</fullName>
-    </fields>
-    <fields>
-        <fullName>GrandTotalAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-    </fields>
-    <fields>
-        <fullName>ShippingInstructions</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalAdjustmentAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalAdjustmentTaxAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalChargeAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalChargeTaxAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalProductAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalProductTaxAmount</fullName>
-    </fields>
-    <fields>
-        <fullName>TotalTaxAmount</fullName>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

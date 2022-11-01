@@ -129,32 +129,5 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>Amount</fullName>
-    </fields>
-    <fields>
-        <fullName>Description</fullName>
-    </fields>
-    <fields>
-        <fullName>Rate</fullName>
-    </fields>
-    <fields>
-        <fullName>ReturnOrderId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ReturnOrderItemAdjustmentId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ReturnOrderLineItemId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>TaxEffectiveDate</fullName>
-    </fields>
-    <fields>
-        <fullName>Type</fullName>
-    </fields>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

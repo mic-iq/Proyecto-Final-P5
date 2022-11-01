@@ -129,17 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fields>
-        <fullName>AppointmentInvitationId</fullName>
-        <type>MasterDetail</type>
-    </fields>
-    <fields>
-        <fullName>IsRequiredResource</fullName>
-    </fields>
-    <fields>
-        <fullName>ParticipantServiceResourceId</fullName>
-        <type>Lookup</type>
-    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>

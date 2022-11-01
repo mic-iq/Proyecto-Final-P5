@@ -129,36 +129,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>DefaultAuthFormTextId</fullName>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>EffectiveFromDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>EffectiveToDate</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsSignatureRequired</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>RevisionNumber</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <listViews>
-        <fullName>All_AuthorizationForms</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All Authorization Forms</label>
-    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>RevisionNumber</customTabListAdditionalFields>
         <customTabListAdditionalFields>EffectiveFromDate</customTabListAdditionalFields>
