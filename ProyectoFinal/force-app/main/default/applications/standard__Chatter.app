@@ -14,4 +14,5 @@
     <tabs>ProjectLineItem__c</tabs>
     <tabs>ProjectResource__c</tabs>
     <tabs>Project_Task__c</tabs>
+    <tabs>Out_of_Office_Approval__c</tabs>
 </CustomApplication>
