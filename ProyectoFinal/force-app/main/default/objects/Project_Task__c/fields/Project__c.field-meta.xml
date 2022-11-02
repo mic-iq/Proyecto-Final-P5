@@ -4,11 +4,11 @@
     <externalId>false</externalId>
     <label>Project</label>
     <lookupFilter>
-        <active>true</active>
+        <active>false</active>
         <filterItems>
             <field>$User.Id</field>
             <operation>equals</operation>
-            <valueField>Project__c.ProjectResource__r.User__c</valueField>
+            <valueField>Project__c.SquadLead__r.Id</valueField>
         </filterItems>
         <isOptional>false</isOptional>
     </lookupFilter>

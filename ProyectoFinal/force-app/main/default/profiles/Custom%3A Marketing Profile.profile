@@ -2696,11 +2696,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ProjectResource__c.Squad_Lead__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ProjectResource__c.Start_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2722,11 +2717,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Project_Task__c.EndDate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Project_Task__c.EstimatedHours__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3944,10 +3934,6 @@
     <flowAccesses>
         <enabled>false</enabled>
         <flow>Test4</flow>
-    </flowAccesses>
-    <flowAccesses>
-        <enabled>false</enabled>
-        <flow>Test_task1</flow>
     </flowAccesses>
     <layoutAssignments>
         <layout>Account-Account %28Marketing%29 Layout</layout>

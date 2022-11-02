@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Not_creation_allowed</fullName>
-    <active>false</active>
+    <active>true</active>
     <description>Only a Squad Lead can create tasks</description>
-    <errorConditionFormula>ProjectResource__r.Squad_Lead__c  = false</errorConditionFormula>
+    <errorConditionFormula>IF(ProjectResource__r.ProjectLineItem__r.Project__r.Selected_Squad_Lead__c =  ProjectResource__r.User__r.FirstName , TRUE, FALSE)</errorConditionFormula>
     <errorMessage>Only Squad Leads are allow to create tasks</errorMessage>
 </ValidationRule>
