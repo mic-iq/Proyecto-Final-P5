@@ -24,7 +24,7 @@
                 <field>RegisterHours__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>EstimatedHours__c</field>
             </layoutItems>
         </layoutColumns>

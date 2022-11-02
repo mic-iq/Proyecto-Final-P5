@@ -12,11 +12,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Project_Task__c.EstimatedHours__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Project_Task__c.RegisterHours__c</field>
         <readable>true</readable>
     </fieldPermissions>

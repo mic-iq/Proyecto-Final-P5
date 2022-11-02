@@ -47,10 +47,6 @@
                 <field>End_Date__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Squad_Lead__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Estimated_Hours__c</field>
             </layoutItems>

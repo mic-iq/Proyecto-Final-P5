@@ -86,6 +86,14 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Project__c.SquadLead__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Project_Task__c.User__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedGroupList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -93,6 +101,9 @@
     </relatedLists>
     <relatedLists>
         <relatedList>UserFollowersList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>TeamList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>UserFollowingList</relatedList>

@@ -63,9 +63,8 @@ public class ResourceService {
                         recurso.Start_Date__c = fechaInicioDesdeInterfaz;
                         recurso.End_Date__c = fechaFinalDesdeInterfaz;
                        system.debug('recurso con dato : '+recurso);
-                        recursosAInsertar.add(recurso);
-                      
-                }
+                        recursosAInsertar.add(recurso);   
+                    }
             }
             if(recursosAInsertar.size()>0){
                 insert recursosAInsertar;
