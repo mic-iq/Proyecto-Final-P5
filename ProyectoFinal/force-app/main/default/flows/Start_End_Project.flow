@@ -75,7 +75,7 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.EstimatedHours__c</leftValueReference>
+                <leftValueReference>$Record.Opportunity_Hours__c</leftValueReference>
                 <operator>LessThan</operator>
                 <rightValue>
                     <elementReference>$Record.Opportunity__r.TotalOpportunityQuantity</elementReference>
@@ -97,17 +97,17 @@
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.EstimatedHours__c</leftValueReference>
+                <leftValueReference>$Record.Opportunity_Hours__c</leftValueReference>
                 <operator>EqualTo</operator>
                 <rightValue>
                     <elementReference>$Record.Opportunity__r.TotalOpportunityQuantity</elementReference>
                 </rightValue>
             </conditions>
             <conditions>
-                <leftValueReference>$Record.SquadLead__c</leftValueReference>
-                <operator>IsNull</operator>
+                <leftValueReference>$Record.Selected_Squad_Lead__c</leftValueReference>
+                <operator>WasSet</operator>
                 <rightValue>
-                    <booleanValue>false</booleanValue>
+                    <booleanValue>true</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
@@ -132,7 +132,7 @@
                 <leftValueReference>$Record.Amount__c</leftValueReference>
                 <operator>LessThan</operator>
                 <rightValue>
-                    <elementReference>$Record.EstimatedAmount__c</elementReference>
+                    <elementReference>$Record.TotalCost__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -207,7 +207,7 @@
             <field>Amount__c</field>
             <operator>GreaterThanOrEqualTo</operator>
             <value>
-                <elementReference>$Record.EstimatedAmount__c</elementReference>
+                <elementReference>$Record.TotalCost__c</elementReference>
             </value>
         </filters>
         <inputAssignments>
@@ -227,8 +227,8 @@
         <object>Project__c</object>
         <schedule>
             <frequency>Daily</frequency>
-            <startDate>2022-11-02</startDate>
-            <startTime>15:24:00.000Z</startTime>
+            <startDate>2022-11-03</startDate>
+            <startTime>00:00:00.000Z</startTime>
         </schedule>
         <triggerType>Scheduled</triggerType>
     </start>
