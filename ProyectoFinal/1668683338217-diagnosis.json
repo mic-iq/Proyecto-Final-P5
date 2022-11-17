@@ -1,0 +1,140 @@
+{
+  "versionDetail": {
+    "cliVersion": "sfdx-cli/7.176.1",
+    "architecture": "linux-x64",
+    "nodeVersion": "node-v18.12.0",
+    "pluginVersions": [
+      "@oclif/plugin-autocomplete 1.3.5 (core)",
+      "@oclif/plugin-commands 2.2.1 (core)",
+      "@oclif/plugin-help 5.1.17 (core)",
+      "@oclif/plugin-not-found 2.3.7 (core)",
+      "@oclif/plugin-plugins 2.1.6 (core)",
+      "@oclif/plugin-update 3.0.6 (core)",
+      "@oclif/plugin-version 1.1.3 (core)",
+      "@oclif/plugin-warn-if-update-available 2.0.12 (core)",
+      "@oclif/plugin-which 2.1.1 (core)",
+      "alias 2.1.7 (core)",
+      "apex 1.3.0 (core)",
+      "auth 2.2.19 (core)",
+      "community 2.0.14 (core)",
+      "config 1.4.22 (core)",
+      "custom-metadata 2.0.3 (core)",
+      "data 2.1.7 (core)",
+      "generator 2.0.9 (core)",
+      "info 2.2.4 (core)",
+      "limits 2.0.10 (core)",
+      "org 2.2.11 (core)",
+      "packaging 1.10.1 (core)",
+      "schema 2.1.12 (core)",
+      "signups 1.2.11 (core)",
+      "source 2.3.0 (core)",
+      "telemetry 2.0.2 (core)",
+      "templates 55.1.0 (core)",
+      "trust 2.0.4 (core)",
+      "user 2.1.16 (core)",
+      "@salesforce/sfdx-plugin-lwc-test 1.0.1 (core)",
+      "salesforce-alm 54.8.3 (core)"
+    ],
+    "osVersion": "Linux 6.0.5-200.fc36.x86_64",
+    "shell": "bash",
+    "rootPath": "/home/mic/.local/share/sfdx/client/7.176.1-458b658"
+  },
+  "sfdxEnvVars": [
+    [
+      "SFDX_BINPATH",
+      "/home/mic/.local/share/sfdx/client/bin/sfdx"
+    ],
+    [
+      "SFDX_REDIRECTED",
+      "1"
+    ],
+    [
+      "SFDX_AUTOUPDATE_DISABLE",
+      "true"
+    ],
+    [
+      "SFDX_DISABLE_AUTOUPDATE",
+      "true"
+    ],
+    [
+      "SFDX_UPDATE_INSTRUCTIONS",
+      "Use \"npm update --global sfdx-cli\" to update npm-based installations."
+    ]
+  ],
+  "sfEnvVars": [],
+  "cliConfig": {
+    "_base": "@oclif/core@1.20.2",
+    "debug": 0,
+    "topicSeparator": ":",
+    "warned": false,
+    "commandPermutations": {
+      "validPermutations": {}
+    },
+    "topicPermutations": {
+      "validPermutations": {}
+    },
+    "_commands": {},
+    "_topics": {},
+    "root": "/home/mic/.local/share/sfdx/client/7.176.1-458b658",
+    "name": "sfdx-cli",
+    "version": "7.176.1",
+    "channel": "stable",
+    "valid": true,
+    "arch": "x64",
+    "platform": "linux",
+    "windows": false,
+    "bin": "sfdx",
+    "dirname": "sfdx",
+    "flexibleTaxonomy": false,
+    "userAgent": "sfdx-cli/7.176.1 linux-x64 node-v18.12.0",
+    "shell": "bash",
+    "home": "/home/mic",
+    "cacheDir": "/home/mic/.cache/sfdx",
+    "configDir": "/home/mic/.config/sfdx",
+    "dataDir": "/home/mic/.local/share/sfdx",
+    "errlog": "/home/mic/.cache/sfdx/error.log",
+    "binPath": "/home/mic/.local/share/sfdx/client/bin/sfdx",
+    "nodeEngine": ">=14.0.0"
+  },
+  "pluginSpecificData": {
+    "@salesforce/plugin-source": [
+      {
+        "sourceApiVersion": "55.0",
+        "targetDevHubApiVersion": "56.0",
+        "targetOrgApiVersion": "56.0"
+      }
+    ]
+  },
+  "diagnosticResults": [
+    {
+      "testName": "salesforcedx plugin not installed",
+      "status": "pass"
+    },
+    {
+      "testName": "no linked plugins",
+      "status": "pass"
+    },
+    {
+      "testName": "using latest or latest-rc CLI version",
+      "status": "pass"
+    },
+    {
+      "testName": "[@salesforce/plugin-source] sourceApiVersion matches apiVersion",
+      "status": "pass"
+    },
+    {
+      "testName": "[@salesforce/plugin-source] default target DevHub max apiVersion matches default target org max apiVersion",
+      "status": "pass"
+    },
+    {
+      "testName": "[@salesforce/plugin-source] sourceApiVersion matches default target org max apiVersion",
+      "status": "warn"
+    }
+  ],
+  "suggestions": [
+    "Check https://github.com/forcedotcom/cli/issues for CLI issues posted by the community.",
+    "Check http://status.salesforce.com for general Salesforce availability and performance.",
+    "The sourceApiVersion in sfdx-project.json doesn't match the max apiVersion of the default target org. As a result, you're not using the latest features available in API version 56.0. The version mismatch isn't a problem, as long as it's the behavior you actually want."
+  ],
+  "logFilePaths": []
+}

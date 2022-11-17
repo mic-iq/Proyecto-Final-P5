@@ -3,7 +3,7 @@
     <fullName>EstimatedAmountXRole__c</fullName>
     <externalId>false</externalId>
     <label>EstimatedAmountXRole</label>
-    <precision>15</precision>
+    <precision>17</precision>
     <required>false</required>
     <scale>2</scale>
     <trackHistory>false</trackHistory>

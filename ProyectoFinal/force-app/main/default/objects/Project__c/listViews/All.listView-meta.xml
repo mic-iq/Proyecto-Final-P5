@@ -5,11 +5,17 @@
     <columns>Start_Date__c</columns>
     <columns>End_Date__c</columns>
     <columns>Status__c</columns>
-    <columns>EstimatedHours__c</columns>
-    <columns>EstimatedAmount__c</columns>
+    <columns>Amount__c</columns>
     <columns>TotalCost__c</columns>
+    <columns>EstimatedAmount__c</columns>
+    <columns>EstimatedHours__c</columns>
     <columns>Selected_Squad_Lead__c</columns>
     <columns>Project_Manager__c</columns>
     <filterScope>Everything</filterScope>
+    <filters>
+        <field>Whoami__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
     <label>All</label>
 </ListView>
