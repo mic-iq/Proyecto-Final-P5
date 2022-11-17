@@ -21,37 +21,37 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Project_Manager__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Start_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>End_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>StageName</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Amount</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>TotalOpportunityQuantity</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ExpectedRevenue</field>
+                <field>Project_Manager__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>CloseDate</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>StageName</field>
+                <behavior>Edit</behavior>
+                <field>Amount</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ExpectedRevenue</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>TotalOpportunityQuantity</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

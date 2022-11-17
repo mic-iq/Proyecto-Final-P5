@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>EstimatedAmountXResource__c</fullName>
     <externalId>false</externalId>
-    <formula>RatePerHour__c * EstimatedHours__c</formula>
+    <formula>RatePerHour__c *  Estimated_Hours__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>EstimatedAmountXResource</label>
     <precision>18</precision>

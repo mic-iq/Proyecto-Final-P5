@@ -3,6 +3,12 @@
     <fullName>All</fullName>
     <columns>NAME</columns>
     <columns>ProjectLineItem__c</columns>
+    <columns>AmountXResource__c</columns>
+    <columns>EstimatedAmountXResource__c</columns>
+    <columns>Estimated_Hours__c</columns>
+    <columns>RatePerHour__c</columns>
+    <columns>TotalRegisterHours__c</columns>
+    <columns>RealAmountXRole__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>
