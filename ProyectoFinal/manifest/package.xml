@@ -34,7 +34,6 @@
 		<members>Opportunity.Start_Date__c</members>
 		<members>Opportunity.TrackingNumber__c</members>
 		<members>OpportunityLineItem.Role__c</members>
-		<members>ProjectLineItem__c.AmountxRole__c</members>
 		<members>ProjectLineItem__c.EstimatedAmountXRole__c</members>
 		<members>ProjectLineItem__c.Project__c</members>
 		<members>ProjectLineItem__c.QuantityHours__c</members>

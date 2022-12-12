@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-grid slds-wrap slds-box" style="background:rgba(214, 221, 223, 0.39);font-size:14px;font-weight:500">
+        <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <span class="  slds-align_absolute-center">{task.Name}</span>
+        </div>
+        <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <span class="slds-box_xx-small slds-align_absolute-center">{task.State__c}</span>
+        </div>
+        <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <div class="slds-box_xx-small slds-align_absolute-center">{task.EstimatedHours__c}</div>
+        </div>
+        <div class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <span class="slds-box_xx-small slds-align_absolute-center">{task.RegisterHours__c}</span>
+        </div>
+        <div if:true ={taskStarted} class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <div class="slds-m-left_x-small">
+                <lightning-input type="number" label="" value={hours} onchange={handleInput}></lightning-input> 
+                <span class="slds-box_xx-small slds-align_absolute-center">
+            <lightning-button label="Add Hours" title="Add hours" onclick={handleLoadHours}></lightning-button>
+            </span>
+            </div>
+        </div>
+        <div if:true ={taskStarted} class="slds-col  slds-medium-size_2-of-12 slds-align_absolute-center">
+            <div class="slds-m-left_x-small">
+                <span class="slds-box_xx-small slds-align_absolute-center">
+                    <lightning-button label="Complete Task" title="Mark as completed" onclick={handleMarkCompleted}></lightning-button>
+                </span>
+            </div>
+        </div>
+        <div if:false ={taskStarted} class="slds-col  slds-medium-size_4-of-12 slds-align_absolute-center">
+            <div class="slds-m-left_x-small">
+                <span class="slds-box_xx-small slds-align_absolute-center">
+                    <lightning-button label="Start Task" title="Non-primary action" onclick={handleMarkCompleted}></lightning-button>
+                </span>
+            </div>
+        </div>       
+
+        
+    </div>
+</template>
