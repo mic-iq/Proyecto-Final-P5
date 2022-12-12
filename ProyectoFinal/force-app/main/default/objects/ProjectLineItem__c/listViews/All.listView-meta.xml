@@ -5,6 +5,10 @@
     <columns>Project__c</columns>
     <columns>EstimatedHours__c</columns>
     <columns>TotalRegisterHoursxRole__c</columns>
+    <columns>Estimated_Hours__c</columns>
+    <columns>EstimatedAmountXRole__c</columns>
+    <columns>AmountxRole__c</columns>
+    <columns>QuantityHours__c</columns>
     <filterScope>Everything</filterScope>
     <label>All</label>
 </ListView>

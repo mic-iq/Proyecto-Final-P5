@@ -3,7 +3,7 @@
     <fullName>EstimatedHours__c</fullName>
     <externalId>false</externalId>
     <label>EstimatedHours</label>
-    <summarizedField>ProjectResource__c.EstimatedHours__c</summarizedField>
+    <summarizedField>ProjectResource__c.TotalRegisterHours__c</summarizedField>
     <summaryForeignKey>ProjectResource__c.ProjectLineItem__c</summaryForeignKey>
     <summaryOperation>sum</summaryOperation>
     <trackHistory>false</trackHistory>

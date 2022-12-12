@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>All</fullName>
+    <fullName>Copy_of_All</fullName>
     <columns>Project_Alias__c</columns>
     <columns>Start_Date__c</columns>
     <columns>End_Date__c</columns>
     <columns>Status__c</columns>
-    <columns>Amount__c</columns>
-    <columns>TotalCost__c</columns>
-    <columns>EstimatedAmount__c</columns>
     <columns>EstimatedHours__c</columns>
+    <columns>EstimatedAmount__c</columns>
+    <columns>TotalCost__c</columns>
     <columns>Selected_Squad_Lead__c</columns>
     <columns>Project_Manager__c</columns>
-    <filterScope>Everything</filterScope>
-    <filters>
-        <field>Whoami__c</field>
-        <operation>equals</operation>
-        <value>1</value>
-    </filters>
-    <label>All</label>
+    <filterScope>Mine</filterScope>
+    <label>Copy of All</label>
 </ListView>

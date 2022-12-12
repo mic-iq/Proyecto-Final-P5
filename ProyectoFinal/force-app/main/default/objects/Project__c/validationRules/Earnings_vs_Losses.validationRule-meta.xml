@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Earnings_vs_Losses</fullName>
-    <active>false</active>
+    <active>true</active>
     <errorConditionFormula>Amount__c  &lt;  EstimatedAmount__c</errorConditionFormula>
     <errorMessage>The project is in loss, please check the estimated amount.</errorMessage>
 </ValidationRule>

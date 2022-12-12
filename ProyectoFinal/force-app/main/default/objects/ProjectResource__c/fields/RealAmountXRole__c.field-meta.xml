@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>EstimatedAmountXRole__c</fullName>
+    <fullName>RealAmountXRole__c</fullName>
     <externalId>false</externalId>
-    <label>EstimatedAmountXRole</label>
-    <precision>17</precision>
+    <formula>RealHours__c *User__r.RatePerHour__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>RealAmountXRole</label>
+    <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
     <trackHistory>false</trackHistory>
