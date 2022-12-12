@@ -41,9 +41,6 @@ trigger permissionApproval on Out_of_Office_Approval__c (before insert,after upd
             else{
                 p.Status__c='Pending Approval';
             }
-            
-            
-            
         }
     }
     
@@ -144,7 +141,6 @@ trigger permissionApproval on Out_of_Office_Approval__c (before insert,after upd
                             subPermission.Start_Date__c = filtered[i-1].End_Date__c +1;
                             subPermission.End_Date__c = startDateProjectResource - 1;
                         }
-                        
                     }
                     else if(i>0 && i==auxiliar-1){
                         if(endDateProjectResource < endDate){
@@ -155,13 +151,8 @@ trigger permissionApproval on Out_of_Office_Approval__c (before insert,after upd
                     approvalNewList.add(subPermission);
                     system.debug('nuevos permisos'+approvalNewList);
                 }  
-                
             }
-            
-            
-            
         }
-        
         insert approvalNewList;
         for(Out_of_Office_Approval__c o:approvalNewList){
             if(o.Status__c =='Pending Approval'){
